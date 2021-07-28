@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Facades\Auth; //追加
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -43,4 +44,36 @@ class Item extends Model
      {
          return $this->state === self::STATE_BOUGHT;
      }
+
+    //多数対多数のリレーション
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\User', 'likes')->withTimestamps();
+    }
+
+    /**
+     * アクセサ - likes_count
+     * @return integer
+     */
+    public function getLikesCountAttribute()
+    {
+        return $this->likes->count();
+    }
+
+    /**
+     * そのコメントにログインユーザー（プロフィール）がすでにいいねをおしているかチェック
+     * アクセサ - liked_by_user
+     * @return boolean
+     */
+    public function getLikedByUserAttribute()
+    {
+        if (Auth::guest()) {
+            return false;
+        }
+
+        return $this->likes->contains(function ($user) {
+
+            return $user->id === Auth::user()->id;
+        });
+    }
 }

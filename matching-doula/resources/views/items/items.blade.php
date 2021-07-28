@@ -28,6 +28,15 @@
                         <h5 class="card-title">{{$item->name}}</h5>
                     </div>
                     <a href="{{ route('item', [$item->id]) }}" class="stretched-link"></a>
+
+                </div>
+                {{-- ここにいいね機能を実装する --}}
+                <div id="app">
+                    <article-like
+                        :initial-is-liked-by='@json($item->liked_by_user)'
+                        :initial-count-likes='@json($item->likes_count)'
+                    >
+                    </article-like>
                 </div>
             </div>
         @endforeach

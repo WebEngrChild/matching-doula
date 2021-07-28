@@ -46,7 +46,9 @@ class ItemsController extends Controller
             * ネストしたリレーションメソッドを使用する時はドット記法でつなぐ
             * ドットの前で記述したリレーションメソッドも動的プロパティーとして持つことができる
             */
-            ->with('secondaryCategory.primaryCategory') // 変更箇所
+
+            // いいね実装時に修正
+            ->with('secondaryCategory.primaryCategory', 'likes') // 変更箇所
             ->orderBy('id', 'DESC')
 
             // ページング処理
