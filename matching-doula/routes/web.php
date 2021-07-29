@@ -42,6 +42,7 @@ Route::prefix('mypage')
          Route::post('edit-profile', 'ProfileController@editProfile')->name('mypage.edit-profile');
          Route::get('bought-items', 'BoughtItemsController@showBoughtItems')->name('mypage.bought-items');
          Route::get('sold-items', 'SoldItemsController@showSoldItems')->name('mypage.sold-items');
+         Route::get('liked-items', 'LikedItemsController@showLikedItems')->name('mypage.liked-items');
          Route::get('vuejs', 'VuejsController@showVuejs')->name('mypage.vuejs');
 });
 Auth::routes();

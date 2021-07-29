@@ -76,8 +76,8 @@
                                 <i class="fas fa-camera text-left" style="width: 30px"></i>商品を出品する
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">
-                                <i class="far fa-heart text-left" style="width: 30px"></i>お気に入り
+                            <a class="dropdown-item" href="{{ route('mypage.liked-items') }}">
+                                <i class="fas fa-heart text-left" style="width: 30px"></i>お気に入り
                             </a>
 
                             <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">

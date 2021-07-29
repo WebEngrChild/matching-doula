@@ -46,4 +46,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Item::class, 'buyer_id');
     }
+
+    // いいね機能
+    //多数対多数のリレーション
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\Item', 'likes')->withTimestamps();
+    }
 }
