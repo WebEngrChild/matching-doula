@@ -31,6 +31,16 @@
                 <td>{{$item->condition->name}}</td>
             </tr>
         </table>
+        {{-- ここにいいね機能を実装する --}}
+        <div id="app" class="text-center">
+            <article-like
+                :initial-is-liked-by='@json($item->liked_by_user)'
+                :initial-count-likes='@json($item->likes_count)'
+                :authorized='@json(Auth::check())'
+                endpoint="{{ route('item.like', ['item' => $item]) }}"
+            >
+            </article-like>
+        </div>
     </div>
 </div>
 
