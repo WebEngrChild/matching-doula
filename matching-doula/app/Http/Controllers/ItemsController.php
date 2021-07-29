@@ -156,4 +156,27 @@ class ItemsController extends Controller
 
          DB::commit();
      }
+
+    // いいねをつける
+     public function like(Request $request, Item $item)
+    {
+        $item->likes()->detach($request->user()->id);
+        $item->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $item->id,
+            'countLikes' => $item->likes_count,
+        ];
+    }
+
+    // いいねを外す
+    public function unlike(Request $request, Item $item)
+    {
+        $item->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $item->id,
+            'countLikes' => $item->likes_count,
+        ];
+    }
 }

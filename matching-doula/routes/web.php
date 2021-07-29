@@ -26,6 +26,10 @@ Route::middleware('auth')
     Route::get('items/{item}/buy', 'ItemsController@showBuyItemForm')->name('item.buy');
     Route::post('items/{item}/buy', 'ItemsController@buyItem')->name('item.buy');
 
+    // いいね機能
+    Route::put('items/{item}/like', 'ItemsController@like')->name('item.like');
+    Route::delete('items/{item}/like', 'ItemsController@unlike')->name('item.unlike');
+
     Route::get('sell', 'SellController@showSellForm')->name('sell');
     Route::post('sell', 'SellController@sellItem')->name('sell');
 });
