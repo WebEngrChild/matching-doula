@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
 @section('title')
-    出品した商品一覧
+    売却済み商品一覧
 @endsection
 
 @section('content')
     <div class="container">
-
         <div class="row">
             <div class="col-10 offset-1 bg-white">
 
-                <div class="font-weight-bold text-center border-bottom pb-3 pt-3" style="font-size: 24px">出品した商品</div>
+                <div class="font-weight-bold text-center border-bottom pb-3 pt-3" style="font-size: 24px">売却済み商品</div>
 
                 {{-- ここではN+1問題が発生してしまう --}}
                 @foreach ($items as $item)
