@@ -77,11 +77,15 @@
                             </a>
 
                             <a class="dropdown-item" href="{{ route('mypage.liked-items') }}">
-                                <i class="fas fa-heart text-left" style="width: 30px"></i>お気に入り
+                                <i class="fas fa-heart text-left" style="width: 30px"></i>お気に入りした商品
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('mypage.listed-items') }}">
+                                <i class="fas fa-store-alt text-left" style="width: 30px"></i>出品した商品
                             </a>
 
                             <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">
-                                <i class="fas fa-store-alt text-left" style="width: 30px"></i>出品した商品
+                                <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>売却済み商品
                             </a>
 
                             <a class="dropdown-item" href="{{ route('mypage.bought-items') }}">
@@ -91,8 +95,8 @@
                                 <i class="far fa-address-card text-left" style="width: 30px"></i>プロフィール編集
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('mypage.vuejs') }}">
-                                <i class="far fa-address-card text-left" style="width: 30px"></i>vuejs
+                            <a class="dropdown-item" href="{{ route('mypage.chats-index') }}">
+                                <i class="far fa-address-card text-left" style="width: 30px"></i>チャット
                             </a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"

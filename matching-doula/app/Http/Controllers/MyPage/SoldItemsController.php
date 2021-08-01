@@ -29,12 +29,14 @@ class SoldItemsController extends Controller
         * ネストしたリレーションメソッドを使用する時はドット記法でつなぐ
         * ドットの前で記述したリレーションメソッドも動的プロパティーとして持つことができる
         */
-        $items = $user->soldItems()
-            ->with('secondaryCategory.primaryCategory') // 変更
-            ->orderBy('id', 'DESC')
-            ->get();
+        $items = $user->soldItems()->where('state', 'bought')
+        ->with('secondaryCategory.primaryCategory') // 変更
+        ->orderBy('id', 'DESC')
+        ->get();
 
-            return view('mypage.sold_items')
-                    ->with('items', $items);
+        return view('mypage.sold_items')
+                ->with('items', $items);
     }
 }
+
+
