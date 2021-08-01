@@ -53,4 +53,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Item', 'likes')->withTimestamps();
     }
+
+    //リアルタイムチャット
+    public function Messages()
+    {
+        return $this->hasManyThrough(Message::class, Item::class, 'user_id');
+    }
 }

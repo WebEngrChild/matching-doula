@@ -38,12 +38,18 @@ Route::prefix('mypage')
      ->namespace('MyPage')
      ->middleware('auth')
      ->group(function () {
-         Route::get('edit-profile', 'ProfileController@showProfileEditForm')->name('mypage.edit-profile');
-         Route::post('edit-profile', 'ProfileController@editProfile')->name('mypage.edit-profile');
-         Route::get('bought-items', 'BoughtItemsController@showBoughtItems')->name('mypage.bought-items');
-         Route::get('sold-items', 'SoldItemsController@showSoldItems')->name('mypage.sold-items');
-         Route::get('liked-items', 'LikedItemsController@showLikedItems')->name('mypage.liked-items');
-         Route::get('vuejs', 'VuejsController@showVuejs')->name('mypage.vuejs');
+        Route::get('edit-profile', 'ProfileController@showProfileEditForm')->name('mypage.edit-profile');
+        Route::post('edit-profile', 'ProfileController@editProfile')->name('mypage.edit-profile');
+        Route::get('bought-items', 'BoughtItemsController@showBoughtItems')->name('mypage.bought-items');
+        Route::get('sold-items', 'SoldItemsController@showSoldItems')->name('mypage.sold-items');
+        Route::get('listed-items', 'ListedItemsController@showListedItems')->name('mypage.listed-items');
+        Route::get('liked-items', 'LikedItemsController@showLikedItems')->name('mypage.liked-items');
+        Route::get('vuejs', 'VuejsController@showVuejs')->name('mypage.vuejs');
+
+        // リアルタイムチャット機能
+        Route::get('post', 'ChatsController@index')->name('mypage.chats-index');
+        Route::get('messages', 'ChatsController@fetchMessages')->name('mypage.fetch-mssages');
+        Route::post('messages', 'ChatsController@sendMessage')->name('mypage.send-message');
 });
 Auth::routes();
 
