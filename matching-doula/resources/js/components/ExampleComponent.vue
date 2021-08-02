@@ -2,7 +2,7 @@
     <div>
         <ul>
             <li v-for="(message, key) in messages" :key="key">
-                <strong>{{ message.user.name }}</strong>
+                <strong>{{ message.message_user.name }}</strong>
                 {{ message.message }}
             </li>
         </ul>
@@ -36,6 +36,7 @@ export default {
     methods: {
         fetchMessages() {
             axios.get("messages").then(response => {
+                console.log(response.data);
                 this.messages = response.data;
             });
         },

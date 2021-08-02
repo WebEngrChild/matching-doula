@@ -23,7 +23,7 @@ class ChatsController extends Controller
 
     public function fetchMessages()
     {
-        return Message::with('users')->get();
+        return Message::with('messageUser')->get();
     }
 
     public function sendMessage(Request $request)
@@ -33,12 +33,10 @@ class ChatsController extends Controller
         // $message = $user->messages()->where('message')->create([
         //     'message' => $request->input('message')
         // ]);
-        $message = $user
-        ->messages()
-        // ->where('messages_room_id', '=', $user->messageRooms )
-        ->create([
+        $message = $user->messages()->create([
             'message' => $request->input('message')
         ]);
+        // ->where('messages_room_id', '=', $user->messageRooms )
 
         event(new MessageSent($user, $message));
 
