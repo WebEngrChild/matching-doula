@@ -77,4 +77,10 @@ class Item extends Model
             return $user->id === Auth::user()->id;
         });
     }
+
+    // リアルタイムチャット機能
+    public function messageRoom()
+    {
+        return $this->belongsTo(MessageRoom::class);
+    }
 }

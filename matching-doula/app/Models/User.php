@@ -51,12 +51,24 @@ class User extends Authenticatable
     //多数対多数のリレーション
     public function likes()
     {
-        return $this->belongsToMany('App\Models\Item', 'likes')->withTimestamps();
+        return $this->belongsToMany(Item::class, 'likes')->withTimestamps();
     }
 
-    //リアルタイムチャット
-    public function Messages()
+    //リアルタイムチャット(チャットのやりとり)
+    public function messages()
     {
-        return $this->hasManyThrough(Message::class, Item::class, 'user_id');
+        return $this->hasMany(Message::class, 'message_user_id');
     }
+
+    //リアルタイムチャット（認証につかう）
+    public function messageRooms()
+    {
+        return $this->belongsToMany(MessageRoom::class, 'message_users', 'message_user_id')->withTimestamps();
+    }
+
+    public function messagesUsers()
+    {
+        return $this->hasMany(MessageUsre::class, 'message_user_id');
+    }
+
 }
