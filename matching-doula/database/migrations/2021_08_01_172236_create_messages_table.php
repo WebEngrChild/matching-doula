@@ -18,11 +18,8 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->text('message');
-            $table->unsignedBigInteger('item_id')->default(1);
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
-
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('message_room_id')->default(1);
+            $table->foreign('message_room_id')->references('id')->on('message_rooms')->onDelete('cascade');
         });
     }
 
@@ -36,3 +33,4 @@ class CreateMessagesTable extends Migration
         Schema::dropIfExists('messages');
     }
 }
+

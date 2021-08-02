@@ -30,7 +30,13 @@ class ChatsController extends Controller
     {
         $user = Auth::user();
 
-        $message = $user->messages()->create([
+        // $message = $user->messages()->where('message')->create([
+        //     'message' => $request->input('message')
+        // ]);
+        $message = $user
+        ->messages()
+        // ->where('messages_room_id', '=', $user->messageRooms )
+        ->create([
             'message' => $request->input('message')
         ]);
 

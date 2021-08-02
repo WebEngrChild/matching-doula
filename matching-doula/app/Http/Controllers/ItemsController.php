@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Item;
 use App\Models\User;// 商品購入に使う
+use App\Models\MessageRoom;// リアルタイムチャット機能
+use App\Models\MessageUser;// リアルタイムチャット機能
 use Carbon\Carbon;// 商品購入に使う
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;// 商品購入に使う
@@ -133,10 +136,25 @@ class ItemsController extends Controller
              $item->state     = Item::STATE_BOUGHT;
              $item->bought_at = Carbon::now();
              $item->buyer_id  = $buyerID;//$user->id  ログインしている人
+
+            //  ===========リアルタイムチャット機能(1)=================
+             $messageroom = MessageRoom::create([]);
+             $item->message_room_id = $messageroom->id;
              $item->save();
 
              $seller->sales += $item->price;
              $seller->save();
+
+            //  ===========リアルタイムチャット機能(2)=================
+             $buy_messageuser = MessageUser::create([
+                'message_user_id' => $buyerID,
+                'message_room_id' => $messageroom->id
+             ]);
+
+             $sold_messageuser = MessageUser::create([
+                'message_user_id' => $sellerID,
+                'message_room_id' => $messageroom->id
+             ]);
 
             // ②PAY.JP側への決済処理を実行する
             //戻り値はChargeクラスのインスタンスです。
