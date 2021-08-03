@@ -95,9 +95,9 @@
                                 <i class="far fa-address-card text-left" style="width: 30px"></i>プロフィール編集
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('mypage.chats-index') }}">
+                            {{-- <a class="dropdown-item" href="{{ route('mypage.chats-index') }}">
                                 <i class="far fa-address-card text-left" style="width: 30px"></i>チャット
-                            </a>
+                            </a> --}}
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
