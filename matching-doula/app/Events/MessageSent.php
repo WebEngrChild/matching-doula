@@ -11,6 +11,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\User;
 use App\Models\Message;
+use App\Models\MessageRoom;
 
 class MessageSent implements ShouldBroadcast
 {
@@ -23,10 +24,11 @@ class MessageSent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(User $user, Message $message)
+    public function __construct(Message $message, MessageRoom $messageroom, User $user)
     {
         $this->user = $user;
         $this->message = $message;
+        // $this->message = $message->where('message_room_id', $messageroom->id )->get();
     }
 
     /**

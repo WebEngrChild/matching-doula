@@ -13,6 +13,13 @@
 
 <script>
 export default {
+    props: {
+        messageRoomId: {
+            type: Number,
+            default: false,
+        },
+    },
+
     data() {
         return {
             text: "",
@@ -29,19 +36,18 @@ export default {
         Echo.private("chat").listen("MessageSent", e => {
             this.messages.push({
                 message: e.message.message,
-                user: e.user
+                message_user: e.user
             });
         });
     },
     methods: {
         fetchMessages() {
-            axios.get("messages").then(response => {
-                console.log(response.data);
+            axios.get("messages" + "/" + this.messageRoomId).then(response => {
                 this.messages = response.data;
             });
         },
         postMessage(message) {
-            axios.post("messages", { message: this.text }).then(response => {
+            axios.post("messages" + "/" + this.messageRoomId, { message: this.text }).then(response => {
                 this.text = "";
             });
         }
