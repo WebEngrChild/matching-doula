@@ -81,6 +81,6 @@ class Item extends Model
     // リアルタイムチャット機能
     public function messageRoom()
     {
-        return $this->belongsTo(MessageRoom::class);
+        return $this->hasOne(MessageRoom::class);
     }
 }

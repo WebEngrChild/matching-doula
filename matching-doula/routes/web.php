@@ -47,9 +47,9 @@ Route::prefix('mypage')
         Route::get('vuejs', 'VuejsController@showVuejs')->name('mypage.vuejs');
 
         // リアルタイムチャット機能
-        Route::get('post', 'ChatsController@index')->name('mypage.chats-index');
-        Route::get('messages', 'ChatsController@fetchMessages')->name('mypage.fetch-mssages');
-        Route::post('messages', 'ChatsController@sendMessage')->name('mypage.send-message');
+        Route::get('messagesroom/{messageroom}', 'ChatsController@index')->name('mypage.messageroom-index');
+        Route::get('messagesroom/messages/{messageroom}', 'ChatsController@fetchMessages')->name('mypage.fetch-mssages');
+        Route::post('messagesroom/messages/{messageroom}', 'ChatsController@sendMessage')->name('mypage.send-message');
 });
 Auth::routes();
 
