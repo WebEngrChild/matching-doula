@@ -26,7 +26,10 @@ class ChatsController extends Controller
 
     public function fetchMessages(MessageRoom $messageroom)
     {
-        return Message::with('messageUser')->where('message_room_id', $messageroom->id)->get();
+        $user = Auth::user();
+        return Message::with('messageUser')
+        ->where('message_user_id', $user->id)
+        ->where('message_room_id', $messageroom->id)->get();
         // return Message::with('messageUser')->get();
     }
 
@@ -42,7 +45,7 @@ class ChatsController extends Controller
             'message_user_id' => $user->id
         ]);
 
-        event(new MessageSent($message, $messageroom, $user));
+        event(new MessageSent($user, $message, $messageroom));
 
         return ['status' => 'Message Sent!'];
     }

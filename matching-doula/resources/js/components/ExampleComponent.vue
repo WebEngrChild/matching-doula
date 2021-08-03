@@ -33,7 +33,7 @@ export default {
     },
     created() {
         this.fetchMessages();
-        Echo.private("chat").listen("MessageSent", e => {
+        Echo.private("chat." + this.messageRoomId ).listen("MessageSent", e => {
             this.messages.push({
                 message: e.message.message,
                 message_user: e.user
