@@ -35,7 +35,7 @@
                                 <span>{{$item->created_at->format('Y年n月j日 H:i')}}</span>
                             </div>
                         </div>
-                        <a href="{{ route('item', [$item->id]) }}" class="stretched-link"></a>
+                        <a href="{{ route('mypage.messageroom-index', [$item->message_room_id]) }}" class="stretched-link"></a>
                     </div>
                 @endforeach
             </div>
