@@ -45,12 +45,30 @@ Route::prefix('mypage')
         Route::get('listed-items', 'ListedItemsController@showListedItems')->name('mypage.listed-items');
         Route::get('liked-items', 'LikedItemsController@showLikedItems')->name('mypage.liked-items');
         Route::get('vuejs', 'VuejsController@showVuejs')->name('mypage.vuejs');
+     }
+);
 
-        // リアルタイムチャット機能
+// リアルタイムチャット機能(メッセージルーム認証)
+Route::prefix('mypage')
+     ->namespace('MyPage')
+     ->middleware('auth')
+     ->middleware('messageroom')
+     ->group(function () {
         Route::get('messagesroom/{messageroom}', 'ChatsController@index')->name('mypage.messageroom-index');
+    }
+);
+
+// リアルタイムチャット機能(メッセージ送信認証)
+Route::prefix('mypage')
+     ->namespace('MyPage')
+     ->middleware('auth')
+     ->middleware('message')
+     ->group(function () {
         Route::get('messagesroom/messages/{messageroom}', 'ChatsController@fetchMessages')->name('mypage.fetch-mssages');
         Route::post('messagesroom/messages/{messageroom}', 'ChatsController@sendMessage')->name('mypage.send-message');
-});
+    }
+);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
