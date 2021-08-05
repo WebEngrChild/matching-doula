@@ -13,10 +13,20 @@ class CreateAppTables extends Migration
      */
     public function up()
     {
+        Schema::create('prefectures', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('name');
+            $table->integer('sort_no');
+        });
+
+        Schema::create('message_rooms', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
+
         Schema::create('primary_categories', function (Blueprint $table) {
             $table->id();
-
-            // ここにカラムを追加していく
             $table->string('name');
             $table->integer('sort_no');
 
@@ -26,23 +36,16 @@ class CreateAppTables extends Migration
         Schema::create('secondary_categories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('primary_category_id');
-
-            // ここにカラムを追加していく
             $table->string('name');
             $table->integer('sort_no');
-
             $table->timestamps();
-
             $table->foreign('primary_category_id')->references('id')->on('primary_categories');
         });
 
         Schema::create('item_conditions', function (Blueprint $table) {
             $table->id();
-
-            // ここにカラムを追加していく
             $table->string('name');
             $table->integer('sort_no');
-
             $table->timestamps();
         });
 
@@ -52,15 +55,12 @@ class CreateAppTables extends Migration
             $table->unsignedBigInteger('buyer_id')->nullable();
             $table->unsignedBigInteger('secondary_category_id');
             $table->unsignedBigInteger('item_condition_id');
-
-            // ここにカラムを追加していく
-             $table->string('name');
-             $table->string('image_file_name');
-             $table->text('description');
-             $table->unsignedInteger('price');
-             $table->string('state');
-             $table->timestamp('bought_at')->nullable();
-
+            $table->string('name');
+            $table->string('image_file_name');
+            $table->text('description');
+            $table->unsignedInteger('price');
+            $table->string('state');
+            $table->timestamp('bought_at')->nullable();
             $table->timestamps();
 
             $table->foreign('seller_id')->references('id')->on('users');
@@ -69,8 +69,12 @@ class CreateAppTables extends Migration
             $table->foreign('item_condition_id')->references('id')->on('item_conditions');
 
             // リアルタイムチャット機能
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('message_room_id')->nullable();
+            $table->foreign('message_room_id')->references('id')->on('message_rooms');
+
+            //エリア機能
+            $table->unsignedBigInteger('prefecture_id')->nullable();
+            $table->foreign('prefecture_id')->references('id')->on('prefectures');
         });
     }
 
@@ -85,5 +89,7 @@ class CreateAppTables extends Migration
         Schema::dropIfExists('item_conditions');
         Schema::dropIfExists('secondary_categories');
         Schema::dropIfExists('primary_categories');
+        Schema::dropIfExists('message_rooms');
+        Schema::dropIfExists('prefectures');
     }
 }
