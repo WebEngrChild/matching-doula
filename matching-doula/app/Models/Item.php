@@ -83,4 +83,10 @@ class Item extends Model
     {
         return $this->hasOne(MessageRoom::class);
     }
+
+     //エリア検索機能
+     public function prefecture()
+     {
+         return $this->belongsTo(Prefecture::class);
+     }
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\SellRequest;
 use App\Models\Item;
 use App\Models\ItemCondition;
 use App\Models\PrimaryCategory;
+use App\Models\Prefecture;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -17,6 +18,8 @@ class SellController extends Controller
 {
     public function showSellForm()
     {
+        $prefectures = Prefecture::orderBy('sort_no')->get();
+
         $categories = PrimaryCategory::orderBy('sort_no')->get();
         // header側でPrimaryCategory→secondaryCategoriesを記載しているためこちらは不要と思ったがそうすると$categoriesが渡せないため重複するが記載しておく
         // $categories = PrimaryCategory::query()
@@ -32,7 +35,8 @@ class SellController extends Controller
 
         return view('sell')
         ->with('categories', $categories)
-        ->with('conditions', $conditions);
+        ->with('conditions', $conditions)
+        ->with('prefectures', $prefectures);
     }
 
     public function sellItem(SellRequest $request)
@@ -51,6 +55,7 @@ class SellController extends Controller
         $item->item_condition_id     = $request->input('condition');
         $item->price                 = $request->input('price');
         $item->state                 = Item::STATE_SELLING;
+        $item->$prefecture_id        = $request->input('prefecture');
         $item->save();
 
         return redirect()->back()
