@@ -13,6 +13,12 @@
                 <form class="form-inline" method="GET" action="{{ route('top') }}">
                     <div class="input-group">
                         <div class="input-group-prepend">
+                            <select class="custom-select" name="prefecture">
+                            <option value="">都道府県</option>
+                                @foreach ($prefectures as $prefecture)
+                                    <option value="{{$prefecture->id}}" class="font-weight-bold" {{ $defaults['prefecture'] == $prefecture->id ? 'selected' : ''}}>{{$prefecture->name}}</option>
+                                @endforeach
+                            </select>
                             <select class="custom-select" name="category">
                                 <option value="">全て</option>
                                 {{-- 検索条件の保存周り --}}
