@@ -20,6 +20,11 @@ class ItemsController extends Controller
     {
         $query = Item::query();// クエリビルダを取得する
 
+        //エリアで絞り込み
+        if ($request->filled('prefecture')) {
+            $query->where('prefecture_id', $request->input('prefecture'));
+        }
+
         // カテゴリで絞り込み
         if ($request->filled('category')) {
             list($categoryType, $categoryID) = explode(':', $request->input('category'));
@@ -51,7 +56,7 @@ class ItemsController extends Controller
             */
 
             // いいね実装時に修正
-            ->with('secondaryCategory.primaryCategory', 'likes') // 変更箇所
+            ->with('secondaryCategory.primaryCategory', 'likes', 'prefecture') // 変更箇所
             ->orderBy('id', 'DESC')
 
             // ページング処理
