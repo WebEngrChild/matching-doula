@@ -42,4 +42,14 @@
         ></example-component>
     </div>
 </div>
+        <a href=""
+        class="bg-secondary text-white d-inline-block d-flex justify-content-center align-items-center flex-column"
+        role="button"
+        style="position: fixed; bottom: 30px; right: 30px; width: 150px; height: 150px; border-radius: 75px;"
+        >
+            <div style="font-size: 24px;">Zoomで繋ぐ</div>
+            <div>
+                <i class="fas fa-camera" style="font-size: 30px;"></i>
+            </div>
+        </a>
 @endsection
