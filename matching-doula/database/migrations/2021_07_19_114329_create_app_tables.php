@@ -75,6 +75,12 @@ class CreateAppTables extends Migration
             //エリア機能
             $table->unsignedBigInteger('prefecture_id')->nullable();
             $table->foreign('prefecture_id')->references('id')->on('prefectures');
+
+            //通知機能
+            $table->unsignedBigInteger('seller_read_id')->nullable();
+            $table->foreign('seller_read_id')->references('id')->on('message_reads')->onDelete('cascade');
+            $table->unsignedBigInteger('buyer_read_id')->nullable();
+            $table->foreign('buyer_read_id')->references('id')->on('message_reads')->onDelete('cascade');
         });
     }
 

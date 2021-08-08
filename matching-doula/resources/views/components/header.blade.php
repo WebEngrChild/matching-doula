@@ -50,7 +50,7 @@
                     {{-- ログイン済み --}}
                     <li class="nav-item dropdown ml-2">
                         {{-- ログイン情報 --}}
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle {{($buyer_readcheck === false || $seller_readcheck === false)  ? 'bg-warning' : ''}}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @if (!empty($user->avatar_file_name))
                                 <img src="/storage/avatars/{{$user->avatar_file_name}}" class="rounded-circle" style="object-fit: cover; width: 35px; height: 35px;">
                             @else
@@ -90,11 +90,19 @@
                                 <i class="fas fa-store-alt text-left" style="width: 30px"></i>出品した商品
                             </a>
 
+                            @if($seller_readcheck === false)
+                            <a class="dropdown-item bg-warning" href="{{ route('mypage.sold-items') }}">
+                            @else
                             <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">
+                            @endif
                                 <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>売却済み商品
                             </a>
 
+                            @if($buyer_readcheck === false)
+                            <a class="dropdown-item bg-warning" href="{{ route('mypage.bought-items') }}">
+                            @else
                             <a class="dropdown-item" href="{{ route('mypage.bought-items') }}">
+                            @endif
                                 <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>購入した商品
                             </a>
                             <a class="dropdown-item" href="{{ route('mypage.edit-profile') }}">

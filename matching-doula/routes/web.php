@@ -72,3 +72,13 @@ Route::prefix('mypage')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//通知機能
+// Route::middleware('auth')
+// ->group(function () {
+//     Route::get('items/{item}/buy', 'ItemsController@showBuyItemForm')->name('item.buy');
+//     Route::post('items/{item}/buy', 'ItemsController@buyItem')->name('item.buy');
+
+//     Route::get('/', [AnnouncementController::class, 'index'])->name('announcement.index');
+//     Route::get('/list', [AnnouncementController::class, 'list'])->name('announcement.list');
+// });

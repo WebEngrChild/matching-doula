@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\User;// 商品購入に使う
 use App\Models\MessageRoom;// リアルタイムチャット機能
 use App\Models\MessageUser;// リアルタイムチャット機能
+use App\Models\MessageRead;// 通知機能
 use Carbon\Carbon;// 商品購入に使う
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;// 商品購入に使う
@@ -61,6 +62,8 @@ class ItemsController extends Controller
 
             // ページング処理
             ->paginate(10);
+
+            // dd($items);
 
         return view('items.items')
             ->with('items', $items);
@@ -141,6 +144,18 @@ class ItemsController extends Controller
              $item->state     = Item::STATE_BOUGHT;
              $item->bought_at = Carbon::now();
              $item->buyer_id  = $buyerID;//$user->id  ログインしている人
+
+            //  ===========通知機能=================
+            $seller_messageread = MessageRead::create([
+                'read' => false,
+            ]);
+
+            $buyer_messageread = MessageRead::create([
+                'read' => false,
+            ]);
+
+            $item->seller_read_id = $seller_messageread->id;
+            $item->buyer_read_id = $buyer_messageread->id;
 
             //  ===========リアルタイムチャット機能(1)=================
              $messageroom = MessageRoom::create([]);
