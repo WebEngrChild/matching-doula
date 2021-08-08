@@ -11,9 +11,12 @@
             <div class="col-10 offset-1 bg-white">
 
                 <div class="font-weight-bold text-center border-bottom pb-3 pt-3" style="font-size: 24px">購入した商品</div>
-
                 @foreach ($items as $item)
-                    <div class="d-flex mt-3 border position-relative">
+                    @if($item->buyerRead->read === 0)
+                        <div class="d-flex mt-3 border position-relative bg-warning">
+                    @else
+                        <div class="d-flex mt-3 border position-relative">
+                    @endif
                         <div>
                             <img src="/storage/item-images/{{$item->image_file_name}}" class="img-fluid" style="height: 140px;">
                         </div>
@@ -32,7 +35,7 @@
                             </div>
                         </div>
                         <a href="{{ route('mypage.messageroom-index', [$item->message_room_id]) }}" class="stretched-link"></a>
-                    </div>
+                        </div>
                 @endforeach
             </div>
         </div>

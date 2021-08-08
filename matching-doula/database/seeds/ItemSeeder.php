@@ -28,6 +28,8 @@ class ItemSeeder extends Seeder
             'updated_at' => now(),
             'message_room_id' => 1,
             'prefecture_id' => 1,
+            'seller_read_id' => 1,
+            'buyer_read_id' => 2,
         ]);
         factory(Item::class)->create([
             'id'      => 2,
@@ -45,6 +47,8 @@ class ItemSeeder extends Seeder
             'updated_at' => now(),
             'message_room_id' => 2,
             'prefecture_id' => 2,
+            'seller_read_id' => 3,
+            'buyer_read_id' => 4,
         ]);
         factory(Item::class)->create([
             'id'      => 3,
@@ -62,6 +66,8 @@ class ItemSeeder extends Seeder
             'updated_at' => now(),
             'message_room_id' => 3,
             'prefecture_id' => 3,
+            'seller_read_id' => 5,
+            'buyer_read_id' => 6,
         ]);
         factory(Item::class)->create([
             'id'      => 4,
@@ -79,6 +85,8 @@ class ItemSeeder extends Seeder
             'updated_at' => now(),
             'message_room_id' => null,
             'prefecture_id' => 4,
+            'seller_read_id' => null,
+            'buyer_read_id' => null,
         ]);
     }
 }

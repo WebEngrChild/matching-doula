@@ -71,4 +71,14 @@ class User extends Authenticatable
         return $this->hasMany(MessageUser::class, 'message_user_id');
     }
 
+    //通知機能
+    public function sellerRead()
+    {
+        return $this->belongsToMany(MessageRead::class, 'items', 'seller_id', 'seller_read_id')->withTimestamps();
+    }
+
+    public function buyerRead()
+    {
+        return $this->belongsToMany(MessageRead::class, 'items', 'buyer_id', 'buyer_read_id')->withTimestamps();
+    }
 }
