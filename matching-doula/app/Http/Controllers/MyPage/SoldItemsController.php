@@ -30,12 +30,21 @@ class SoldItemsController extends Controller
         * ドットの前で記述したリレーションメソッドも動的プロパティーとして持つことができる
         */
         $items = $user->soldItems()->where('state', 'bought')
-        ->with('secondaryCategory.primaryCategory') // 変更
+        ->with('secondaryCategory.primaryCategory' ,'sellerRead') // 変更
         ->orderBy('id', 'DESC')
         ->get();
 
+
+        //通知機能
+        // $message_room_id = $user->messagesUsers
+        // ->where('message_user_id', $user->id)
+        // ->where('read', false);
+
         return view('mypage.sold_items')
-                ->with('items', $items);
+            ->with([
+                "items" => $items,
+                // "rooms" => $message_room_id,
+            ]);
     }
 }
 

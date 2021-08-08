@@ -30,6 +30,11 @@ class Item extends Model
         return $this->belongsTo(User::class, 'seller_id');
     }
 
+    public function buyer()
+    {
+        return $this->belongsTo(User::class, 'buyer_id');
+    }
+
     public function condition()
     {
         return $this->belongsTo(ItemCondition::class, 'item_condition_id');
@@ -81,7 +86,7 @@ class Item extends Model
     // リアルタイムチャット機能
     public function messageRoom()
     {
-        return $this->hasOne(MessageRoom::class);
+        return $this->hasOne(MessageRoom::class, 'id');
     }
 
      //エリア検索機能
@@ -89,4 +94,15 @@ class Item extends Model
      {
          return $this->belongsTo(Prefecture::class);
      }
+
+    //  通知機能
+    public function sellerRead()
+    {
+        return $this->belongsTo(MessageRead::class, 'seller_read_id', 'id');
+    }
+
+    public function buyerRead()
+    {
+        return $this->belongsTo(MessageRead::class, 'buyer_read_id', 'id');
+    }
 }

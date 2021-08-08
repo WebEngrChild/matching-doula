@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\ItemCondition;
 use App\Models\PrimaryCategory;
 use App\Models\Prefecture;
+use App\Models\MessageRead;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -55,7 +56,7 @@ class SellController extends Controller
         $item->item_condition_id     = $request->input('condition');
         $item->price                 = $request->input('price');
         $item->state                 = Item::STATE_SELLING;
-        $item->$prefecture_id        = $request->input('prefecture');
+        $item->prefecture_id        = $request->input('prefecture');
         $item->save();
 
         return redirect()->back()
