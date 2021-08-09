@@ -42,7 +42,7 @@
         ></example-component>
     </div>
 </div>
-        <a href=""
+        <a href="{{route('mypage.zoom-index', [$item->message_room_id])}}"
         class="bg-secondary text-white d-inline-block d-flex justify-content-center align-items-center flex-column"
         role="button"
         style="position: fixed; bottom: 30px; right: 30px; width: 150px; height: 150px; border-radius: 75px;"
