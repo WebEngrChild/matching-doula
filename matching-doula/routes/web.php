@@ -55,6 +55,8 @@ Route::prefix('mypage')
      ->middleware('messageroom')
      ->group(function () {
         Route::get('messagesroom/{messageroom}', 'ChatsController@index')->name('mypage.messageroom-index');
+        Route::get('messagesroom/{messageroom}/zoom', 'ZoomMakeController@showZoomForm')->name('mypage.zoom-index');
+        Route::post('messagesroom/{messageroom}/zoom', 'ZoomMakeController@makeZoomMeeting')->name('mypage.make-zoom');
     }
 );
 
@@ -73,12 +75,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//通知機能
-// Route::middleware('auth')
-// ->group(function () {
-//     Route::get('items/{item}/buy', 'ItemsController@showBuyItemForm')->name('item.buy');
-//     Route::post('items/{item}/buy', 'ItemsController@buyItem')->name('item.buy');
-
-//     Route::get('/', [AnnouncementController::class, 'index'])->name('announcement.index');
-//     Route::get('/list', [AnnouncementController::class, 'list'])->name('announcement.list');
-// });
