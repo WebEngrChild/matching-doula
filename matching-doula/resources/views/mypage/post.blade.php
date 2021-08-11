@@ -36,20 +36,19 @@
             <div class="my-3">{!! nl2br(e($item->description)) !!}</div>
         </div>
     </div>
-    <div>
-        <example-component
-           :message-Room-Id='@json($item->message_room_id)'
-        ></example-component>
-    </div>
-</div>
-        <a href="{{route('mypage.zoom-index', [$item->message_room_id])}}"
-        class="bg-secondary text-white d-inline-block d-flex justify-content-center align-items-center flex-column"
-        role="button"
-        style="position: fixed; bottom: 30px; right: 30px; width: 150px; height: 150px; border-radius: 75px;"
-        >
-            <div style="font-size: 24px;">Zoomで繋ぐ</div>
-            <div>
-                <i class="fas fa-camera" style="font-size: 30px;"></i>
+
+        <div class="row">
+            <div class="col-8 offset-2">
+                <example-component
+                :message-Room-Id='@json($item->message_room_id)'
+                ></example-component>
+                <form method="POST" action="{{ route('mypage.make-zoom',[$item->message_room_id]) }}" class="p-5" enctype="multipart/form-data">
+                    @csrf
+                    <button type="submit" class="btn btn-block btn-secondary">
+                        Zoom作成
+                    </button>
+                </form>
             </div>
-        </a>
+        </div>
+        
 @endsection
