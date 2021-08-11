@@ -83,11 +83,11 @@
                             </a>
 
                             <a class="dropdown-item" href="{{ route('mypage.liked-items') }}">
-                                <i class="fas fa-heart text-left" style="width: 30px"></i>お気に入りした商品
+                                <i class="fas fa-heart text-left" style="width: 30px"></i>お気に入り
                             </a>
 
                             <a class="dropdown-item" href="{{ route('mypage.listed-items') }}">
-                                <i class="fas fa-store-alt text-left" style="width: 30px"></i>出品した商品
+                                <i class="fas fa-store-alt text-left" style="width: 30px"></i>出品中
                             </a>
 
                             @if($seller_readcheck === false)
@@ -95,7 +95,7 @@
                             @else
                             <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">
                             @endif
-                                <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>売却済み商品
+                                <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>売却済み
                             </a>
 
                             @if($buyer_readcheck === false)
@@ -103,7 +103,7 @@
                             @else
                             <a class="dropdown-item" href="{{ route('mypage.bought-items') }}">
                             @endif
-                                <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>購入した商品
+                                <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>購入済み
                             </a>
                             <a class="dropdown-item" href="{{ route('mypage.edit-profile') }}">
                                 <i class="far fa-address-card text-left" style="width: 30px"></i>プロフィール編集

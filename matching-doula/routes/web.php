@@ -36,11 +36,12 @@ Route::prefix('mypage')
      ->group(function () {
         Route::get('edit-profile', 'ProfileController@showProfileEditForm')->name('mypage.edit-profile');
         Route::post('edit-profile', 'ProfileController@editProfile')->name('mypage.edit-profile');
+        Route::get('edit-item/{item}', 'EditItemController@showEditItemForm')->name('mypage.edit-item');
+        Route::post('edit-item/{item}', 'EditItemController@editItem')->name('mypage.edit-item');
         Route::get('bought-items', 'BoughtItemsController@showBoughtItems')->name('mypage.bought-items');
         Route::get('sold-items', 'SoldItemsController@showSoldItems')->name('mypage.sold-items');
         Route::get('listed-items', 'ListedItemsController@showListedItems')->name('mypage.listed-items');
         Route::get('liked-items', 'LikedItemsController@showLikedItems')->name('mypage.liked-items');
-        Route::get('vuejs', 'VuejsController@showVuejs')->name('mypage.vuejs');
      }
 );
 
