@@ -14,7 +14,7 @@
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <select class="custom-select" name="prefecture">
-                            <option value="">都道府県</option>
+                            <option value="">エリア</option>
                                 @foreach ($prefectures as $prefecture)
                                     <option value="{{$prefecture->id}}" class="font-weight-bold" {{ $defaults['prefecture'] == $prefecture->id ? 'selected' : ''}}>{{$prefecture->name}}</option>
                                 @endforeach
