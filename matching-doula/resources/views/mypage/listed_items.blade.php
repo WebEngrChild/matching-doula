@@ -36,7 +36,7 @@
                                 <span>{{$item->created_at->format('Y年n月j日 H:i')}}</span>
                             </div>
                         </div>
-                        <a href="{{ route('item', [$item->id]) }}" class="stretched-link"></a>
+                        <a href="{{ route('mypage.edit-item', [$item->id]) }}" class="stretched-link"></a>
                     </div>
                 @endforeach
             </div>

@@ -34,16 +34,9 @@ class SoldItemsController extends Controller
         ->orderBy('id', 'DESC')
         ->get();
 
-
-        //通知機能
-        // $message_room_id = $user->messagesUsers
-        // ->where('message_user_id', $user->id)
-        // ->where('read', false);
-
         return view('mypage.sold_items')
             ->with([
                 "items" => $items,
-                // "rooms" => $message_room_id,
             ]);
     }
 }
