@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('', 'ItemsController@showItems')->name('top');
 
-Auth::routes();
-
-//今回は使用しないので削除する
-// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('items/{item}', 'ItemsController@showItemDetail')->name('item');
 
 Route::middleware('auth')
@@ -55,7 +51,6 @@ Route::prefix('mypage')
      ->middleware('messageroom')
      ->group(function () {
         Route::get('messagesroom/{messageroom}', 'ChatsController@index')->name('mypage.messageroom-index');
-        Route::get('messagesroom/{messageroom}/zoom', 'ZoomMakeController@showZoomForm')->name('mypage.zoom-index');
         Route::post('messagesroom/{messageroom}/zoom', 'ZoomMakeController@makeZoomMeeting')->name('mypage.make-zoom');
     }
 );
@@ -72,6 +67,5 @@ Route::prefix('mypage')
 );
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
