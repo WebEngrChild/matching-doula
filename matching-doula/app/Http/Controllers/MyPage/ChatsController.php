@@ -23,13 +23,13 @@ class ChatsController extends Controller
     public function index(MessageRoom $messageroom)
     {
         $user = Auth::User();
-        
+
         //通知機能（自分を既読にする）
         //ログインしたユーザー情報を取得
         $user_id = Auth::id();
 
         //今回の取引商品の情報を取得
-        $item = $messageroom->messageItem->first();
+        $item = $messageroom->messageItem;
 
         //売り手と買い手のユーザーIDを取得
         $seller_id = $item->seller->id;
