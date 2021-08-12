@@ -57,6 +57,7 @@ class SellController extends Controller
         $item->price                 = $request->input('price');
         $item->state                 = Item::STATE_SELLING;
         $item->prefecture_id        = $request->input('prefecture');
+        $item->zoom        = $request->input('zoom');
         $item->save();
 
         return redirect()->back()

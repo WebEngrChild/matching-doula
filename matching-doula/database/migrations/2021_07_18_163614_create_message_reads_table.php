@@ -16,7 +16,6 @@ class CreateMessageReadsTable extends Migration
         Schema::create('message_reads', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name')->default('意味わからない');
             $table->boolean('read')->default(false)->nullable()->comment('未読 or 既読');
         });
     }

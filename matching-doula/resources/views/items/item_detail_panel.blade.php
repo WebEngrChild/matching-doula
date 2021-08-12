@@ -35,6 +35,10 @@
                 <th>商品の状態</th>
                 <td>{{$item->condition->name}}</td>
             </tr>
+            <tr>
+                <th>Zoomの有無</th>
+                <td>{{$item->zoom}}</td>
+            </tr>
         </table>
         {{-- ここにいいね機能を実装する --}}
         <div id="app" class="text-center">

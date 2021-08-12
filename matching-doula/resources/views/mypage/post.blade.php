@@ -37,7 +37,7 @@
         </div>
     </div>
 
-        <div class="row">
+        <div class="row" {{$item->zoom === 'なし' ? disabled : ''}}>
             <div class="col-8 offset-2">
                 <example-component
                 :message-Room-Id='@json($item->message_room_id)'
@@ -50,5 +50,5 @@
                 </form>
             </div>
         </div>
-        
+
 @endsection

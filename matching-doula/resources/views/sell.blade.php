@@ -118,6 +118,24 @@
                         @enderror
                     </div>
 
+                    {{-- Zoomの有無 --}}
+                    <div class="form-group mt-3">
+                        <label for="zoom">Zoomの有無</label>
+                        <select name="zoom" class="custom-select form-control @error('zoom') is-invalid @enderror">
+                            <option value="あり" {{old('zoom') ? 'selected' : ''}}>
+                                あり
+                            </option>
+                            <option value="なし" {{old('zoom') ? 'selected' : ''}}>
+                                なし
+                            </option>
+                        </select>
+                        @error('zoom')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
                     {{-- 販売価格 --}}
                     <div class="form-group mt-3">
                         <label for="price">販売価格</label>
