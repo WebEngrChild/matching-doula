@@ -37,14 +37,14 @@
         </div>
     </div>
 
-        <div class="row" {{$item->zoom === 'なし' ? disabled : ''}}>
+        <div class="row">
             <div class="col-8 offset-2">
                 <example-component
                 :message-Room-Id='@json($item->message_room_id)'
                 ></example-component>
                 <form method="POST" action="{{ route('mypage.make-zoom',[$item->message_room_id]) }}" class="p-5" enctype="multipart/form-data">
                     @csrf
-                    <button type="submit" class="btn btn-block btn-secondary">
+                    <button type="submit" class="btn btn-block btn-secondary" {{$item->zoom === 'なし' ? 'disabled' : ''}}>
                         Zoom作成
                     </button>
                 </form>
