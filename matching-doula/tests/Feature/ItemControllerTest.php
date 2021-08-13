@@ -12,7 +12,8 @@ class ItemControllerTest extends TestCase
     //商品一覧
     public function testshowItems() {
             $response = $this->get(route('top'));
-            $response->assertStatus(200)
+            $response->assertStatus(400)
+            // $response->assertStatus(200)
                 ->assertViewIs('items.items');
     }
     //未ログイン出品
