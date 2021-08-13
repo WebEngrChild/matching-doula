@@ -27,6 +27,7 @@ class ItemControllerTest extends TestCase
             $user = factory(User::class)->create();
             $response = $this->actingAs($user)
                 ->get(route('sell'));
-            $response->assertStatus(302);
+            $response->assertStatus(400);
+            // $response->assertStatus(302);
     }
 }
