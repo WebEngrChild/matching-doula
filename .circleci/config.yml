@@ -7,11 +7,13 @@ jobs:
       - checkout
       - run: sudo composer self-update --1 
       - restore_cache:
+          working_directory: matching-doula
           key: composer-v1-{{ checksum "composer.lock" }}
       - run: 
           working_directory: matching-doula 
           command: composer install -n --prefer-dist
       - save_cache:
+          working_directory: matching-doula 
           key: composer-v1-{{ checksum "composer.lock" }}
           paths:
           - vendor
