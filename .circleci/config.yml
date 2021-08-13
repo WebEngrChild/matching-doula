@@ -12,11 +12,11 @@ jobs:
     environment:
       APP_ENV: testing
       DB_CONNECTION: mysql
-      DB_HOST: 172.25.0.5 
+      DB_HOST: 127.0.0.1 
       DB_PORT: 3306
       DB_DATABASE: matchingdoula
-      DB_USERNAME: root
-      DB_PASSWORD: root
+      DB_USERNAME: admin
+      DB_PASSWORD: password
 
     steps:
       - checkout
