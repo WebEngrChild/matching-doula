@@ -8,6 +8,7 @@ jobs:
           MYSQL_DATABASE: matchingdoula
           MYSQL_USER: root
           MYSQL_PASSWORD: root
+
     environment:
       APP_ENV: testing
       DB_CONNECTION: mysql
@@ -16,6 +17,7 @@ jobs:
       DB_DATABASE: matchingdoula
       DB_USERNAME: root
       DB_PASSWORD: root
+      
     steps:
       - checkout
       - run: sudo composer self-update --1 
