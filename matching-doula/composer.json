@@ -19,7 +19,7 @@
         "laravel/ui": "2.1.0",
         "lcobucci/jwt": "3.3",
         "payjp/payjp-php": "1.2.0",
-        "pusher/pusher-php-server": "~3.0"
+        "pusher/pusher-php-server": "~4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "3.4.2",
