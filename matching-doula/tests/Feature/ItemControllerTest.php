@@ -14,6 +14,7 @@ class ItemControllerTest extends TestCase
             $response = $this->get(route('top'));
             $response->assertStatus(400)
             // $response->assertStatus(200)
+            // $response->assertStatus(200)
                 ->assertViewIs('items.items');
     }
     //未ログイン出品
@@ -28,6 +29,7 @@ class ItemControllerTest extends TestCase
             $response = $this->actingAs($user)
                 ->get(route('sell'));
             $response->assertStatus(400);
+            // $response->assertStatus(302);
             // $response->assertStatus(302);
     }
 }
