@@ -6,8 +6,8 @@ jobs:
       - image: circleci/mysql:5.7
         environment:
           MYSQL_DATABASE: matchingdoula
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root
+          MYSQL_USER: admin
+          MYSQL_PASSWORD: password
 
     environment:
       APP_ENV: testing
@@ -17,7 +17,7 @@ jobs:
       DB_DATABASE: matchingdoula
       DB_USERNAME: root
       DB_PASSWORD: root
-      
+
     steps:
       - checkout
       - run: sudo composer self-update --1 
