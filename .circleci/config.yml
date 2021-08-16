@@ -69,6 +69,7 @@ jobs:
           name: deploy
           command: |
             ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd matching-doula/matching-doula && \
+              git config pull.rebase false \
               git pull origin master && \
               composer install -n --no-dev --prefer-dist && \
               npm ci && \
