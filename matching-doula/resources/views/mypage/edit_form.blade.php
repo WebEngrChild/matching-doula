@@ -29,7 +29,7 @@
                     <span class="item-image-form image-picker">
                         <input type="file" name="item-image" class="d-none" accept="image/png,image/jpeg,image/gif" id="item-image" />
                         <label for="item-image" class="d-inline-block" role="button">
-                            <img src="/storage/item-images/{{$item->image_file_name}}" style="object-fit: cover; width: 300px; height: 300px;">
+                            <img src="{{ Storage::disk('s3')->url("item-images/$item->image_file_name")}}" style="object-fit: cover; width: 300px; height: 300px;">
                         </label>
                     </span>
                     @error('item-image')
