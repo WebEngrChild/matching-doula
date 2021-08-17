@@ -12,15 +12,16 @@
         "fideloper/proxy": "^4.2",
         "firebase/php-jwt": "^5.4",
         "fruitcake/laravel-cors": "^2.0",
+        "fzaninotto/faker": "^1.9.1",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "2.5.1",
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.1.0",
         "lcobucci/jwt": "3.3",
+        "league/flysystem-aws-s3-v3": "~1.0",
         "payjp/payjp-php": "1.2.0",
-        "pusher/pusher-php-server": "~4.0",
-        "fzaninotto/faker": "^1.9.1"
+        "pusher/pusher-php-server": "~4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "3.4.2",

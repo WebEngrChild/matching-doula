@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-4 offset-1">
-        <img class="card-img-top" src="/storage/item-images/{{$item->image_file_name}}">
+        <img class="card-img-top" src="{{ Storage::disk('s3')->url("item-images/$item->image_file_name")}}">
     </div>
     <div class="col-6">
         <table class="table table-bordered">
@@ -13,7 +13,8 @@
                     <!-- 全てblongsToであるため多対一の関係性のため発行されるクエリは一つ-->
                     <!-- もしここでUser → items → item のような場合はN+1問題が発生する-->
                     @if (!empty($item->seller->avatar_file_name))
-                        <img src="/storage/avatars/{{$item->seller->avatar_file_name}}" class="rounded-circle" style="object-fit: cover; width: 35px; height: 35px;">
+                    <?php $seller_avatar_image = $item->seller->avatar_file_name ?>
+                    <img src="{{ Storage::disk('s3')->url("avatars/$seller_avatar_image")}}" class="rounded-circle" style="object-fit: cover; width: 35px; height: 35px;">
                     @else
                         <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 35px; height: 35px;">
                     @endif

@@ -19,7 +19,7 @@
                     <div class="d-flex mt-3 border position-relative">
                 @endif
                         <div>
-                            <img src="/storage/item-images/{{$item->image_file_name}}" class="img-fluid" style="height: 140px;">
+                            <img src="{{ Storage::disk('s3')->url("item-images/$item->image_file_name")}}" class="img-fluid" style="height: 140px;">
                         </div>
                         <div class="flex-fill p-3">
                             <div>
