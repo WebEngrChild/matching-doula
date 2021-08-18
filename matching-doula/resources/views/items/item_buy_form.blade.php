@@ -46,7 +46,7 @@
             <div class="row mt-3 mb-3">
                 <div class="col-8 offset-2">
                     {{-- カードトークン取得 --}}
-                    <button class="btn btn-secondary btn-block" onclick="onSubmit(event)">購入</button>
+                    <button class="btn btn-secondary text-white btn-block" onclick="onSubmit(event)">購入</button>
                 </div>
             </div>
 

@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-block btn-secondary">
+                    <button type="submit" class="btn btn-secondary text-white btn-block">
                         会員登録
                     </button>
                 </div>
