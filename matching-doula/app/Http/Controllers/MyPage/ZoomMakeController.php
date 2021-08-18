@@ -77,6 +77,7 @@ class ZoomMakeController extends Controller
             'message_room_id' => $messageroom->id,
             'message_user_id' => $user->id
         ]);
+        event(new MessageSent($user, $message, $messageroom));
 
         //個人チャットにパスワード送信
         $message = $user->messages()->create([
