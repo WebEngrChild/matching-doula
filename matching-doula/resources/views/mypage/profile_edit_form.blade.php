@@ -47,6 +47,28 @@
                         @enderror
                     </div>
 
+                    {{-- 活動の説明 --}}
+                    <div class="form-group mt-3">
+                        <label for="activities">私のこれまでの経験</label>
+                        <textarea id="activities" class="form-control @error('activities') is-invalid @enderror" name="activities" value="{{ old('activities', $user->activities) }}" required autocomplete="activities" autofocus>{{ old('activities',  $user->activities) }}</textarea>
+                        @error('activities')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    {{-- 寄り添いメッセージ  --}}
+                    <div class="form-group mt-3">
+                        <label for="messages">寄り添いメッセージ</label>
+                        <textarea id="messages" class="form-control @error('messages') is-invalid @enderror" name="messages" value="{{ old('messages', $user->messages) }}" required autocomplete="messages" autofocus>{{ old('messages', $user->messages) }}</textarea>
+                        @error('messages')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
                     <div class="form-group mb-0 mt-3">
                         <button type="submit" class="btn btn-block btn-secondary">
                             保存

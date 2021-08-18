@@ -217,4 +217,13 @@ class ItemsController extends Controller
             'countLikes' => $item->likes_count,
         ];
     }
+
+    //出品者詳細表示
+    public function showSeller(Item $item)
+    {
+        $seller = $item->seller->first();
+
+        return view('items.item_seller')
+        ->with('user', $seller);
+    }
 }
