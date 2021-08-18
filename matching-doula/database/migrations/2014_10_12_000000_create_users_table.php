@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('sales')->default(0);
             $table->rememberToken();
             $table->timestamps();
+            $table->text('activities')->nullable();
+            $table->text('messages')->nullable();
         });
     }
 

@@ -24,6 +24,8 @@ class ProfileController extends Controller
          $user = Auth::user();
 
          $user->name = $request->input('name');
+         $user->activities = $request->input('activities');
+         $user->messages = $request->input('messages');
 
          if ($request->has('avatar')) {
             $fileName = $this->saveAvatar($request->file('avatar'));

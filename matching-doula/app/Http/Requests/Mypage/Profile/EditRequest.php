@@ -26,6 +26,8 @@ class EditRequest extends FormRequest
         return [
             'avatar' => ['file', 'image'],
             'name' => ['required', 'string', 'max:255'],
+            'activities' => ['required', 'string', 'max:2000'],
+            'messages' => ['required', 'string', 'max:2000'],
        ];
     }
 }

@@ -18,7 +18,8 @@
                     @else
                         <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 35px; height: 35px;">
                     @endif
-                    {{$item->seller->name}}
+                    <a href="{{ route('seller', ['item' => $item]) }}">
+                    {{$item->seller->name}}</a>
                 </td>
             </tr>
             <tr>
