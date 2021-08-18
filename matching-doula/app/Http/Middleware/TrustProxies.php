@@ -12,12 +12,16 @@ class TrustProxies extends Middleware
      *
      * @var array|string|null
      */
-    protected $proxies;
+
+    //AWS Elastic Load Balancingを使用するため変更
+    protected $proxies = '*';
 
     /**
      * The headers that should be used to detect proxies.
      *
      * @var int
      */
-    protected $headers = Request::HEADER_X_FORWARDED_ALL;
+
+    //AWS Elastic Load Balancingを使用するため変更
+    protected $headers = Request::HEADER_X_FORWARDED_AWS_ELB;
 }
