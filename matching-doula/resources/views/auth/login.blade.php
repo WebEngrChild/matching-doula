@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="form-group mb-0">
-                    <button type="submit" class="btn btn-block btn-secondary">
+                    <button type="submit" class="btn btn-secondary text-white btn-block">
                         ログイン
                     </button>
                 </div>

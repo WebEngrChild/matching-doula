@@ -41,10 +41,10 @@
                 @guest
                     {{-- 非ログイン --}}
                     <li class="nav-item">
-                        <a class="btn btn-secondary ml-3" href="{{ route('register') }}" role="button">会員登録</a>
+                        <a class="btn btn-secondary text-white ml-3" href="{{ route('register') }}" role="button">会員登録</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-info ml-2" href="{{ route('login') }}" role="button">ログイン</a>
+                        <a class="btn btn-outline-secondary ml-2" href="{{ route('login') }}" role="button">ログイン</a>
                     </li>
                 @else
                     {{-- ログイン済み --}}
@@ -108,10 +108,6 @@
                             <a class="dropdown-item" href="{{ route('mypage.edit-profile') }}">
                                 <i class="far fa-address-card text-left" style="width: 30px"></i>プロフィール編集
                             </a>
-
-                            {{-- <a class="dropdown-item" href="{{ route('mypage.chats-index') }}">
-                                <i class="far fa-address-card text-left" style="width: 30px"></i>チャット
-                            </a> --}}
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
