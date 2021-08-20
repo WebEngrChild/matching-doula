@@ -34,21 +34,29 @@
             </div>
 
             <div class="my-3">{!! nl2br(e($item->description)) !!}</div>
-        </div>
-    </div>
 
-        <div class="row">
-            <div class="col-8 offset-2">
-                <example-component
-                :message-Room-Id='@json($item->message_room_id)'
-                ></example-component>
-                <form method="POST" action="{{ route('mypage.make-zoom',[$item->message_room_id]) }}" class="p-5" enctype="multipart/form-data">
-                    @csrf
-                    <button type="submit" class="btn btn-secondary text-white btn-block" {{$item->zoom === 'なし' ? 'disabled' : ''}}>
-                        Zoom作成
-                    </button>
-                </form>
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <example-component
+                    :message-Room-Id='@json($item->message_room_id)'
+                    ></example-component>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <form method="POST" action="{{ route('mypage.make-zoom',[$item->message_room_id]) }}" class="p-5" enctype="multipart/form-data">
+                        @csrf
+                        <button type="submit" class="btn btn-secondary text-white btn-block" {{$item->zoom === 'なし' ? 'disabled' : ''}}>
+                            Zoom作成
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+
 
 @endsection
