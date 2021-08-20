@@ -38,7 +38,7 @@
                 <td>{{$item->condition->name}}</td>
             </tr>
             <tr>
-                <th>Zoomの有無</th>
+                <th>Zoom相談</th>
                 <td>{{$item->zoom}}</td>
             </tr>
         </table>

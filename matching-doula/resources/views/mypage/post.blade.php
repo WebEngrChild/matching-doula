@@ -39,6 +39,7 @@
                 <div class="col-8 offset-2">
                     <example-component
                     :message-Room-Id='@json($item->message_room_id)'
+                    :auth-User='@json($user->name)'
                     ></example-component>
                 </div>
             </div>

@@ -14,7 +14,7 @@
                 {{-- ここではN+1問題が発生してしまう --}}
                 @foreach ($items as $item)
                 @if($item->sellerRead->read === 0)
-                    <div class="d-flex mt-3 border position-relative bg-warning">
+                    <div class="d-flex mt-3 border position-relative bg-secondary">
                 @else
                     <div class="d-flex mt-3 border position-relative">
                 @endif
