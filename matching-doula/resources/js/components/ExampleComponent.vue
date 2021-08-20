@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="chat bg-light p-4">
+        <div class="bg-light my-2">
             <div v-for="(message, key) in messages" :key="key">
                 <div v-if="authusername == message.message_user.name">
                     <div class="d-flex flex-row-reverse align-items-start mb-4">
@@ -24,11 +24,11 @@
                 </div>
             </div>
         </div>
-            <b-row>
-                <b-col sm="9">
+            <b-row class="">
+                <b-col sm="9" class="mt-2" >
                     <b-form-input v-model="text"></b-form-input>
                 </b-col>
-                <b-col sm="3">
+                <b-col sm="3" class="mt-2" >
                     <b-button v-on:click="postMessage" pill variant="secondary text-white" :disabled="!textExists">送信</b-button>
                 </b-col>
             </b-row>

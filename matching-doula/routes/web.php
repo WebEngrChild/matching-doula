@@ -53,6 +53,9 @@ Route::prefix('mypage')
         //出品中商品
         Route::get('listed-items', 'ListedItemsController@showListedItems')->name('mypage.listed-items');
         Route::get('liked-items', 'LikedItemsController@showLikedItems')->name('mypage.liked-items');
+
+        //いいね獲得ランキング
+        Route::get('liked-users', 'LikedItemsController@showLikedUsers')->name('mypage.liked-users');
      }
 );
 

@@ -54,6 +54,12 @@ class User extends Authenticatable
         return $this->belongsToMany(Item::class, 'likes')->withTimestamps();
     }
 
+    //自分についたいいね
+    public function myLikes()
+    {
+        return $this->hasManyThrough(Like::class, Item::class, 'seller_id', 'item_id');
+    }
+
     //リアルタイムチャット(チャットのやりとり)
     public function messages()
     {
