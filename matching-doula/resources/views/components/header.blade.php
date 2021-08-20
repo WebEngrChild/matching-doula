@@ -80,6 +80,11 @@
                                     <div class="col-auto">{{number_format($user->soldItems->count())}} 個</div>
                                 </div>
                             </div>
+                            <div class="dropdown-item-text">
+                                <div class="row no-gutters">
+                                    <div class="col"><i class="fas fa-heart text-left" style="width: 30px"></i>された数</div>
+                                    <div class="col-auto">{{number_format($user->myLikes->count())}} 個</div>
+                            </div>
                             <div class="dropdown-divider"></div>
 
                             <a class="dropdown-item" href="{{ route('sell') }}">
@@ -88,6 +93,10 @@
 
                             <a class="dropdown-item" href="{{ route('mypage.liked-items') }}">
                                 <i class="fas fa-heart text-left" style="width: 30px"></i>お気に入り
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('mypage.liked-users') }}">
+                                <i class="fas fa-heart text-left" style="width: 30px"></i>お気に入りランキング
                             </a>
 
                             <a class="dropdown-item" href="{{ route('mypage.listed-items') }}">

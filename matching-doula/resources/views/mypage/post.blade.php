@@ -37,20 +37,16 @@
 
             <div class="row">
                 <div class="col-8 offset-2">
-                    <example-component
-                    :message-Room-Id='@json($item->message_room_id)'
-                    :auth-User='@json($user->name)'
-                    ></example-component>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8 offset-2">
-                    <form method="POST" action="{{ route('mypage.make-zoom',[$item->message_room_id]) }}" class="p-5" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('mypage.make-zoom',[$item->message_room_id]) }}" class="p-2" enctype="multipart/form-data">
                         @csrf
                         <button type="submit" class="btn btn-secondary text-white btn-block" {{$item->zoom === 'なし' ? 'disabled' : ''}}>
-                            Zoom作成
+                            Meetingルームを作成
                         </button>
                     </form>
+                        <example-component
+                        :message-Room-Id='@json($item->message_room_id)'
+                        :auth-User='@json($user->name)'
+                        ></example-component>
                 </div>
             </div>
         </div>
