@@ -44,7 +44,7 @@
                 ></example-component>
                 <form method="POST" action="{{ route('mypage.make-zoom',[$item->message_room_id]) }}" class="p-5" enctype="multipart/form-data">
                     @csrf
-                    <button type="submit" class="btn btn-block btn-secondary" {{$item->zoom === 'なし' ? 'disabled' : ''}}>
+                    <button type="submit" class="btn btn-secondary text-white btn-block" {{$item->zoom === 'なし' ? 'disabled' : ''}}>
                         Zoom作成
                     </button>
                 </form>
