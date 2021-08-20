@@ -50,7 +50,7 @@
                     {{-- ログイン済み --}}
                     <li class="nav-item dropdown ml-2">
                         {{-- ログイン情報 --}}
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle {{($buyer_readcheck === false || $seller_readcheck === false)  ? 'bg-warning' : ''}}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle {{($buyer_readcheck === false || $seller_readcheck === false)  ? 'bg-secondary' : ''}}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @if (!empty($user->avatar_file_name))
                                 <img src="{{ Storage::disk('s3')->url("avatars/$user->avatar_file_name")}}" class="rounded-circle" style="object-fit: cover; width: 35px; height: 35px;">
                             @else
@@ -91,7 +91,7 @@
                             </a>
 
                             @if($seller_readcheck === false)
-                            <a class="dropdown-item bg-warning" href="{{ route('mypage.sold-items') }}">
+                            <a class="dropdown-item bg-secondary" href="{{ route('mypage.sold-items') }}">
                             @else
                             <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">
                             @endif
@@ -99,7 +99,7 @@
                             </a>
 
                             @if($buyer_readcheck === false)
-                            <a class="dropdown-item bg-warning" href="{{ route('mypage.bought-items') }}">
+                            <a class="dropdown-item bg-secondary" href="{{ route('mypage.bought-items') }}">
                             @else
                             <a class="dropdown-item" href="{{ route('mypage.bought-items') }}">
                             @endif

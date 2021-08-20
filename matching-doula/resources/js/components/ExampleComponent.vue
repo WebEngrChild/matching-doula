@@ -1,12 +1,29 @@
 <template>
-    <div>
-        <ul>
-            <li v-for="(message, key) in messages" :key="key">
-                <strong>{{ message.message_user.name }}</strong>
-                {{ message.message }}
-            </li>
-        </ul>
-        <b-container fluid>
+    <div class="container">
+        <div class="chat bg-light p-4">
+            <div v-for="(message, key) in messages" :key="key">
+                <div v-if="authusername == message.message_user.name">
+                    <div class="d-flex flex-row-reverse align-items-start mb-4">
+                        <div class="rounded-circle bg-secondary text-white fs-3 mr-1">
+                        <b-avatar variant="bg-secondary">YOU</b-avatar>
+                        </div>
+                        <p class="p-2 ms-2 mb-0 bg-white border border-secondary rounded">
+                        {{ message.message }}
+                        </p>
+                    </div>
+                </div>
+                <div v-else>
+                        <div class="d-flex flex-row align-items-start mb-4">
+                        <div class="rounded-circle bg-info text-white fs-3 ml-1">
+                        <b-avatar variant="bg-info"></b-avatar>
+                        </div>
+                        <p class="p-2 ms-2 mb-0 bg-white border border-info rounded">
+                        {{ message.message }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
             <b-row>
                 <b-col sm="9">
                     <b-form-input v-model="text"></b-form-input>
@@ -15,7 +32,6 @@
                     <b-button v-on:click="postMessage" pill variant="secondary text-white" :disabled="!textExists">送信</b-button>
                 </b-col>
             </b-row>
-        </b-container>
     </div>
 </template>
 
@@ -26,12 +42,16 @@ export default {
             type: Number,
             default: false,
         },
+        authUser: {
+            type: String,
+        },
     },
 
     data() {
         return {
             text: "",
-            messages: []
+            messages: [],
+            authusername: this.authUser,
         };
     },
     computed: {

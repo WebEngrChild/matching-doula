@@ -1,10 +1,10 @@
 <template>
     <div v-if="this.isLikedBy">
-    <b-button v-on:click="clickLike" pill variant="outline-danger" class="bg-danger text-white">お気に入り済み</b-button>
+    <b-button v-on:click="clickLike" pill variant="outline-secondary" class="bg-secondary text-white">お気に入り済み</b-button>
      {{ countLikes }}
     </div>
     <div v-else>
-    <b-button v-on:click="clickLike" pill variant="outline-danger">お気に入り</b-button>
+    <b-button v-on:click="clickLike" pill variant="outline-secondary">お気に入り</b-button>
      {{ countLikes }}
     </div>
 </template>
