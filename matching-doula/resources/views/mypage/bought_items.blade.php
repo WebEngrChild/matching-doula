@@ -13,7 +13,8 @@
                 <div class="font-weight-bold text-center border-bottom pb-3 pt-3" style="font-size: 24px">購入した商品</div>
                 @foreach ($items as $item)
                     @if($item->buyerRead->read === 0)
-                        <div class="d-flex mt-3 border position-relative bg-secondary text-white">
+                        <span class="badge bg-secondary text-white float-left">New!!</span>
+                        <div class="border border-secondary d-flex mt-3 position-relative">
                     @else
                         <div class="d-flex mt-3 border position-relative">
                     @endif
