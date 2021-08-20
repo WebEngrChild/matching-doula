@@ -50,13 +50,17 @@
                     {{-- ログイン済み --}}
                     <li class="nav-item dropdown ml-2">
                         {{-- ログイン情報 --}}
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle {{($buyer_readcheck === false || $seller_readcheck === false)  ? 'bg-secondary' : ''}}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @if (!empty($user->avatar_file_name))
                                 <img src="{{ Storage::disk('s3')->url("avatars/$user->avatar_file_name")}}" class="rounded-circle" style="object-fit: cover; width: 35px; height: 35px;">
                             @else
                                 <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 35px; height: 35px;">
                             @endif
                             {{ $user->name }} <span class="caret"></span>
+
+                            @if ($buyer_readcheck === false || $seller_readcheck === false)
+                                <span class="badge bg-secondary text-white float-right">New!!</span>
+                            @endif
                         </a>
 
                          {{-- ドロップダウンメニュー --}}
@@ -91,20 +95,28 @@
                             </a>
 
                             @if($seller_readcheck === false)
-                            <a class="dropdown-item bg-secondary" href="{{ route('mypage.sold-items') }}">
+                                <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">
+                                <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>
+                                売却済み
+                                <span class="badge bg-secondary text-white">New!!</span>
                             @else
-                            <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">
-                            @endif
+                                <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">
                                 <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>売却済み
-                            </a>
+                                </a>
+                            @endif
 
                             @if($buyer_readcheck === false)
-                            <a class="dropdown-item bg-secondary" href="{{ route('mypage.bought-items') }}">
+                                <a class="dropdown-item" href="{{ route('mypage.bought-items') }}">
+                                <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>
+                                購入済み
+                                <span class="badge bg-secondary text-white">New!!</span>
+                                </a>
                             @else
-                            <a class="dropdown-item" href="{{ route('mypage.bought-items') }}">
-                            @endif
+                                <a class="dropdown-item" href="{{ route('mypage.bought-items') }}">
                                 <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>購入済み
-                            </a>
+                                </a>
+                            @endif
+
                             <a class="dropdown-item" href="{{ route('mypage.edit-profile') }}">
                                 <i class="far fa-address-card text-left" style="width: 30px"></i>プロフィール編集
                             </a>
