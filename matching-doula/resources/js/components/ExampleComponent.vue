@@ -6,8 +6,16 @@
                 {{ message.message }}
             </li>
         </ul>
-        <input v-model="text" />
-        <button @click="postMessage" :disabled="!textExists">送信</button>
+        <b-container fluid>
+            <b-row>
+                <b-col sm="9">
+                    <b-form-input v-model="text"></b-form-input>
+                </b-col>
+                <b-col sm="3">
+                    <b-button v-on:click="postMessage" pill variant="secondary text-white" :disabled="!textExists">送信</b-button>
+                </b-col>
+            </b-row>
+        </b-container>
     </div>
 </template>
 

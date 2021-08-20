@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="form-group mb-0 mt-3">
-                        <button type="submit" class="btn btn-block btn-secondary">
+                        <button type="submit" class="btn btn-secondary text-white btn-block">
                             保存
                         </button>
                     </div>
