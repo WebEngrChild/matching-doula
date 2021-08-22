@@ -74,7 +74,7 @@
                                 <span class="activity-image-form image-picker">
                                     <input type="file" name="activity_image1" class="d-none" accept="image/png,image/jpeg,image/gif" id="activity_image1" />
                                     <label for="activity_image1" class="d-inline-block">
-                                        @if (!empty($user->avatar_file_name))
+                                        @if (!empty($user->activity_image_file_name_1))
                                             <img  id="first" src="{{ Storage::disk('s3')->url("activity_images/$user->activity_image_file_name_1")}}" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
                                         @else
                                             <img  id="first" src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
@@ -90,7 +90,7 @@
                         <span class="activity-image-form image-picker">
                             <input type="file" name="activity_image2" class="d-none" accept="image/png,image/jpeg,image/gif" id="activity_image2" />
                             <label for="activity_image2" class="d-inline-block">
-                                @if (!empty($user->avatar_file_name))
+                                @if (!empty($user->activity_image_file_name_2))
                                     <img  id="second" src="{{ Storage::disk('s3')->url("activity_images/$user->activity_image_file_name_2")}}" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
                                 @else
                                     <img  id="second" src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
@@ -104,7 +104,7 @@
                         <span class="activity-image-form image-picker">
                             <input type="file" name="activity_image3" class="d-none" accept="image/png,image/jpeg,image/gif" id="activity_image3" />
                             <label for="activity_image3" class="d-inline-block">
-                                @if (!empty($user->avatar_file_name))
+                                @if (!empty($user->activity_image_file_name_3))
                                     <img id="third" src="{{ Storage::disk('s3')->url("activity_images/$user->activity_image_file_name_3")}}" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
                                 @else
                                     <img id="third" src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
