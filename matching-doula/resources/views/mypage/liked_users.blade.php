@@ -15,7 +15,7 @@
                     <div class="d-flex mt-3 border position-relative">
                         <div>
                             @if (!empty($user->avatar_file_name))
-                                <img src="{{ Storage::disk('s3')->url("item-images/$user->avatar_file_name")}}" class="img-fluid" style="height: 140px;">
+                                <img src="{{ Storage::disk('s3')->url("avatars/$user->avatar_file_name")}}" class="img-fluid" style="height: 140px;">
                             @else
                                 <img src="/images/avatar-default.svg" class="img-fluid" style="height: 140px;">
                             @endif
@@ -26,6 +26,7 @@
                                 <span class="ml-1">獲得いいね数{{($user->my_likes_count)}}個</span>
                             </div>
                         </div>
+                        <a href="{{ route('seller', [$user]) }}" class="stretched-link"></a>
                     </div>
                 @endforeach
             </div>
