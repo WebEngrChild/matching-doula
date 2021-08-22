@@ -219,11 +219,9 @@ class ItemsController extends Controller
     }
 
     //出品者詳細表示
-    public function showSeller(Item $item)
+    public function showSeller(User $user)
     {
-        $seller = $item->seller->first();
-
-        return view('items.item_seller')
-        ->with('user', $seller);
+        return view('seller')
+        ->with('user', $user);
     }
 }
