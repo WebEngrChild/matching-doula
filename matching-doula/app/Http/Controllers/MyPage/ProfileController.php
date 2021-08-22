@@ -15,8 +15,12 @@ class ProfileController extends Controller
 {
      public function showProfileEditForm()
      {
+        $user =  Auth::user();
+
          return view('mypage.profile_edit_form')
-             ->with('user', Auth::user());
+             ->with([
+                 'user' => $user,
+             ]);
      }
 
      public function editProfile(EditRequest $request)
@@ -30,7 +34,22 @@ class ProfileController extends Controller
          if ($request->has('avatar')) {
             $fileName = $this->saveAvatar($request->file('avatar'));
             $user->avatar_file_name = $fileName;
-        }
+         }
+
+         if ($request->has('activity_image1')) {
+            $fileName = $this->saveActivityImage($request->file('activity_image1'));
+            $user->activity_image_file_name_1 = $fileName;
+         }
+
+         if ($request->has('activity_image2')) {
+            $fileName = $this->saveActivityImage($request->file('activity_image2'));
+            $user->activity_image_file_name_2 = $fileName;
+         }
+
+         if ($request->has('activity_image3')) {
+            $fileName = $this->saveActivityImage($request->file('activity_image3'));
+            $user->activity_image_file_name_3 = $fileName;
+         }
 
         $user->save();
 
@@ -52,6 +71,18 @@ class ProfileController extends Controller
 
           $filePath = Storage::disk('s3')
               ->putFile('avatars', new File($tempPath));
+
+          return basename($filePath);
+      }
+
+      private function saveActivityImage(UploadedFile $file): string
+      {
+          $tempPath = $this->makeTempPath();
+
+          Image::make($file)->fit(200, 200)->save($tempPath);
+
+          $filePath = Storage::disk('s3')
+              ->putFile('activity_images', new File($tempPath));
 
           return basename($filePath);
       }

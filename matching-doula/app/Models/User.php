@@ -87,4 +87,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(MessageRead::class, 'items', 'buyer_id', 'buyer_read_id')->withTimestamps();
     }
+
+    //カルーセル画像
+    public function activityImages()
+    {
+        return $this->hasMany(ActivityImage::class, 'user_id');
+    }
 }

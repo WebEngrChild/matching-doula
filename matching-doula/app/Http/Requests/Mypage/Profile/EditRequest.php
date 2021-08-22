@@ -28,6 +28,9 @@ class EditRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'activities' => ['required', 'string', 'max:2000'],
             'messages' => ['required', 'string', 'max:2000'],
+            'activity_image1' =>  ['file', 'image'],
+            'activity_image2' =>  ['file', 'image'],
+            'activity_image3' =>  ['file', 'image'],
        ];
     }
 }

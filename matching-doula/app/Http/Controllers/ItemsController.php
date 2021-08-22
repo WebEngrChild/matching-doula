@@ -8,6 +8,7 @@ use App\Models\User;// 商品購入に使う
 use App\Models\MessageRoom;// リアルタイムチャット機能
 use App\Models\MessageUser;// リアルタイムチャット機能
 use App\Models\MessageRead;// 通知機能
+use App\Models\ActivityImage;// 通知機能
 use Carbon\Carbon;// 商品購入に使う
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;// 商品購入に使う
@@ -222,6 +223,8 @@ class ItemsController extends Controller
     public function showSeller(User $user)
     {
         return view('seller')
-        ->with('user', $user);
+        ->with([
+            'user' => $user,
+        ]);
     }
 }
