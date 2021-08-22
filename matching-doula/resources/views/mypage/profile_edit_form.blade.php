@@ -68,7 +68,51 @@
                         </span>
                         @enderror
                     </div>
+                    {{-- 私の活動画像1 --}}
+                    <div class="row">
+                        <div class="col-4  bg-white">
+                                <span class="activity-image-form image-picker">
+                                    <input type="file" name="activity_image1" class="d-none" accept="image/png,image/jpeg,image/gif" id="activity_image1" />
+                                    <label for="activity_image1" class="d-inline-block">
+                                        @if (!empty($user->avatar_file_name))
+                                            <img  id="first" src="{{ Storage::disk('s3')->url("activity_images/$user->activity_image_file_name_1")}}" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                                        @else
+                                            <img  id="first" src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                                        @endif
+                                    </label>
+                                </span>
+                            </div>
+                        <div>
+                    </div>
 
+                    {{-- 私の活動画像2 --}}
+                    <div class="col-4  bg-white">
+                        <span class="activity-image-form image-picker">
+                            <input type="file" name="activity_image2" class="d-none" accept="image/png,image/jpeg,image/gif" id="activity_image2" />
+                            <label for="activity_image2" class="d-inline-block">
+                                @if (!empty($user->avatar_file_name))
+                                    <img  id="second" src="{{ Storage::disk('s3')->url("activity_images/$user->activity_image_file_name_2")}}" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                                @else
+                                    <img  id="second" src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                                @endif
+                            </label>
+                        </span>
+                    </div>
+
+                    {{-- 私の活動画像3 --}}
+                    <div class="col-4 bg-white">
+                        <span class="activity-image-form image-picker">
+                            <input type="file" name="activity_image3" class="d-none" accept="image/png,image/jpeg,image/gif" id="activity_image3" />
+                            <label for="activity_image3" class="d-inline-block">
+                                @if (!empty($user->avatar_file_name))
+                                    <img id="third" src="{{ Storage::disk('s3')->url("activity_images/$user->activity_image_file_name_3")}}" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                                @else
+                                    <img id="third" src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                                @endif
+                            </label>
+                        </span>
+                    </div>
+                 </div>
                     <div class="form-group mb-0 mt-3">
                         <button type="submit" class="btn btn-secondary text-white btn-block">
                             保存
@@ -79,3 +123,4 @@
         </div>
     </div>
 @endsection
+

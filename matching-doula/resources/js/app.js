@@ -56,15 +56,38 @@ library.add(faSearch, faAddressCard, faStoreAlt, faShoppingBag, faSignOutAlt, fa
 
 dom.watch();
 
-document.querySelector('.image-picker input')
-.addEventListener('change', (e) => {
+document.querySelectorAll('input').forEach(function (input) {
+    input.addEventListener('change',  (e) => {
     // ここに画像が選択された時の処理を記述する
     const input = e.target;
     const reader = new FileReader();
-    reader.onload = (e) => {
-    // ここに、画像を読み込んだ後の処理を記述する
-        input.closest('.image-picker').querySelector('img').src = e.target.result
+
+    console.log(e.target.name);
+
+    //条件分岐
+    switch (e.target.name) {
+        case 'first' :
+            reader.onload = (e) => {
+                document.getElementById('first').src = e.target.result
+            }
+            break;
+
+        case 'second' :
+            reader.onload = (e) => {
+                document.getElementById('second').src = e.target.result
+            }
+            break;
+        case 'third' :
+            reader.onload = (e) => {
+                document.getElementById('third').src = e.target.result
+            }
+                break;
+        default:
+            reader.onload = (e) => {
+                input.closest('.image-picker').querySelector('img').src = e.target.result
+            }
+
     };
     // ここに、画像を読み込む処理を記述する
     reader.readAsDataURL(input.files[0]);
-});
+})});

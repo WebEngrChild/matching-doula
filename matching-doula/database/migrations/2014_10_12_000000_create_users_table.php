@@ -25,6 +25,12 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->text('activities')->nullable();
             $table->text('messages')->nullable();
+            $table->string('activity_image_file_name_1')->nullable();
+            $table->string('activity_image_file_name_2')->nullable();
+            $table->string('activity_image_file_name_3')->nullable();
+            $table->text('image1_description')->nullable();
+            $table->text('image2_description')->nullable();
+            $table->text('image3_description')->nullable();
         });
     }
 
