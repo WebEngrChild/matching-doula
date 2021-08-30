@@ -14,23 +14,38 @@ class PrimaryCategorySeeder extends Seeder
     {
         factory(PrimaryCategory::class)->create([
             'id'      => 1,
-            'name'    => 'レディース',
+            'name'    => 'マタニティ用ファッション',
             'sort_no' => 1,
         ]);
         factory(PrimaryCategory::class)->create([
             'id'      => 2,
-            'name'    => 'メンズ',
+            'name'    => 'お子さん用ファッション',
             'sort_no' => 2,
         ]);
         factory(PrimaryCategory::class)->create([
             'id'      => 3,
-            'name'    => 'ベビー・キッズ',
+            'name'    => 'ベビーカー',
             'sort_no' => 3,
         ]);
         factory(PrimaryCategory::class)->create([
             'id'      => 4,
-            'name'    => 'その他',
+            'name'    => 'ベビー用寝具',
             'sort_no' => 4,
+        ]);
+        factory(PrimaryCategory::class)->create([
+            'id'      => 5,
+            'name'    => 'おもちゃ',
+            'sort_no' => 5,
+        ]);
+        factory(PrimaryCategory::class)->create([
+            'id'      => 6,
+            'name'    => 'お悩み相談',
+            'sort_no' => 6,
+        ]);
+        factory(PrimaryCategory::class)->create([
+            'id'      => 7,
+            'name'    => 'その他',
+            'sort_no' => 7,
         ]);
     }
 }
