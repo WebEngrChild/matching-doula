@@ -67,24 +67,29 @@
 
 ## 使用技術
 - **バックエンド**
-  - php
-  - Laravel
+  - php 7.2.5
+  - Laravel 7.24
 
 - **フロントエンド**
   - HTML/CSS/Sass/JavaScript
-  - jQuery
-  - vue.js
+  - jquery 3.2
+  - bootstrap 4.0.0
+  - bootstrap-vue 2.21.2
+  - vue.js 2.5.17
 
 - **インフラ**
   - AWS(EC2 VPC IAM RDS Route53 CloudFormation S3)
-  - Docker / docker-compose
+  - Laradock / Docker 20.10.6 / docker-compose 1.29.1
   - Circle CI
-  - mysql
+  - mysql 5.7
   
  - **その他ツール**
-  - Postman(APIの検証・生成・取得に使いました)
-  - MySQLWorkbench(データベースやAWSの構成図に使いました)
-  - phpUnit
+  - ZoomAPI
+  - laravel-echo 1.11.1
+  - payjp/payjp-php 1.2.0
+  - pusher/pusher-php-server 4.0
+  - MySQLWorkbench
+  - Postman
  
 ## インフラ構成図
 
