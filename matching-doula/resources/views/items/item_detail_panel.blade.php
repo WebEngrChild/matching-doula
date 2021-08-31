@@ -41,6 +41,10 @@
                 <th>Zoom相談</th>
                 <td>{{$item->zoom}}</td>
             </tr>
+            <tr>
+                <th>送料負担</th>
+                <td>{{$item->postage}}</td>
+            </tr>
         </table>
         {{-- ここにいいね機能を実装する --}}
         <div id="app" class="text-center">

@@ -42,5 +42,10 @@ class ItemConditionSeeder extends Seeder
             'name'    => '全体的に状態が悪い',
             'sort_no' => 6,
         ]);
+        factory(ItemCondition::class)->create([
+            'id'      => 7,
+            'name'    => 'ご相談',
+            'sort_no' => 7,
+        ]);
     }
 }

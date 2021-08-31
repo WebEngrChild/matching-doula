@@ -44,8 +44,13 @@ class PrimaryCategorySeeder extends Seeder
         ]);
         factory(PrimaryCategory::class)->create([
             'id'      => 7,
-            'name'    => 'その他',
+            'name'    => 'イベント',
             'sort_no' => 7,
+        ]);
+        factory(PrimaryCategory::class)->create([
+            'id'      => 8,
+            'name'    => 'その他',
+            'sort_no' => 8,
         ]);
     }
 }

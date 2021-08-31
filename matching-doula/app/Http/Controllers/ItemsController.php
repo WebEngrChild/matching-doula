@@ -62,7 +62,7 @@ class ItemsController extends Controller
             ->orderBy('id', 'DESC')
 
             // ページング処理
-            ->paginate(10);
+            ->paginate(8);
 
             // dd($items);
 
