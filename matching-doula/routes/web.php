@@ -54,6 +54,8 @@ Route::prefix('mypage')
 
         //購入済み商品
         Route::get('bought-items', 'BoughtItemsController@showBoughtItems')->name('mypage.bought-items');
+
+        //売却済み商品
         Route::get('sold-items', 'SoldItemsController@showSoldItems')->name('mypage.sold-items');
 
         //出品中商品

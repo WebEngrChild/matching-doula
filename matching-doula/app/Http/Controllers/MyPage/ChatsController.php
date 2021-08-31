@@ -55,7 +55,8 @@ class ChatsController extends Controller
             }
 
         //リアルタイムチャット機能
-        $item = $messageroom->messageItem->find($messageroom->id);
+        $item = $messageroom->messageItem->where('message_room_id', $messageroom->id)->first();
+
         return view('mypage.post')
         ->with([
             'item' => $item,
