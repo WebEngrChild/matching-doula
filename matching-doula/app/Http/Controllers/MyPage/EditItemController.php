@@ -50,7 +50,8 @@ class EditItemController extends Controller
         $item->item_condition_id     = $request->input('condition');
         $item->price                 = $request->input('price');
         $item->prefecture_id        = $request->input('prefecture');
-        $item->zoom                   = $request->input('zoom');
+        $item->zoom                  = $request->input('zoom');
+        $item->postage               = $request->input('postage');
         $item->save();
 
         return redirect()->back()
