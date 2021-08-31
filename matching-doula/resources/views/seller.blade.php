@@ -49,14 +49,20 @@
                                     @else
                                          <img src="/images/avatar-default.svg" class="img-fluid mt-4 rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
                                     @endif
+                                    <div class="carousel-caption mt-0 text-info">
+                                        <p>{{$user->image1_description}}</p>
+                                    </div>
                                 </div>
                                 <!-- スライド02 -->
                                 <div class="text-center carousel-item">
                                     @if (!empty($user->activity_image_file_name_2))
                                          <img src="{{ Storage::disk('s3')->url("activity_images/$user->activity_image_file_name_2")}}" class="img-fluid mt-4 rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
                                     @else
-                                         <img src="/images/avatar-default.svg" class="img-fluid mt-4 rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                                         <img src="/images/avatar-default.svg" class="img-fluid mt-4" style="object-fit: cover; width: 200px; height: 200px;">
                                     @endif
+                                    <div class="carousel-caption mt-0 text-info">
+                                        <p>{{$user->image2_description}}</p>
+                                    </div>
                                 </div>
                                 <!-- スライド03 -->
                                 <div class="text-center carousel-item">
@@ -65,6 +71,9 @@
                                     @else
                                          <img src="/images/avatar-default.svg" class="img-fluid mt-4 rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
                                     @endif
+                                    <div class="carousel-caption mt-0 text-info">
+                                        <p>{{$user->image3_description}}</p>
+                                    </div>
                                 </div>
                             <!-- コントローラー -->
                             <a class="carousel-control-prev" href="#main_visual" role="button" data-slide="prev">

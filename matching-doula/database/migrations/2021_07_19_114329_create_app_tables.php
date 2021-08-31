@@ -67,6 +67,7 @@ class CreateAppTables extends Migration
             $table->foreign('secondary_category_id')->references('id')->on('secondary_categories');
             $table->foreign('item_condition_id')->references('id')->on('item_conditions');
             $table->string('zoom');
+            $table->string('postage');
 
             // リアルタイムチャット機能
             $table->unsignedBigInteger('message_room_id')->nullable();

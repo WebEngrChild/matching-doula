@@ -193,10 +193,22 @@ class SecondaryCategorySeeder extends Seeder
             'primary_category_id' => 6,
         ]);
         factory(SecondaryCategory::class)->create([
-            'id'                  => 31,
-            'name'                => 'その他',
-            'sort_no'             => 31,
+            'id'                  => 32,
+            'name'                => 'ランチ会',
+            'sort_no'             => 32,
             'primary_category_id' => 7,
+        ]);
+        factory(SecondaryCategory::class)->create([
+            'id'                  => 33,
+            'name'                => 'アクティビティ',
+            'sort_no'             => 33,
+            'primary_category_id' => 7,
+        ]);
+        factory(SecondaryCategory::class)->create([
+            'id'                  => 34,
+            'name'                => 'その他',
+            'sort_no'             => 34,
+            'primary_category_id' => 8,
         ]);
     }
 }

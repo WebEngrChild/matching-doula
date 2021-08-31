@@ -136,6 +136,24 @@
                         @enderror
                     </div>
 
+                    {{-- 送料負担 --}}
+                    <div class="form-group mt-3">
+                        <label for="postage">送料負担</label>
+                        <select name="postage" class="custom-select form-control @error('postage') is-invalid @enderror">
+                            <option value="あり" {{$item->postage === 'あり' ? 'selected' : ''}}>
+                                あり
+                            </option>
+                            <option value="なし" {{$item->postage === 'なし' ? 'selected' : ''}}>
+                                なし
+                            </option>
+                        </select>
+                        @error('postage')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
                     {{-- 販売価格 --}}
                     <div class="form-group mt-3">
                         <label for="price">販売価格</label>
