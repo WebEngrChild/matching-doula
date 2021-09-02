@@ -41,10 +41,13 @@
                 @guest
                     {{-- 非ログイン --}}
                     <li class="nav-item">
-                        <a class="btn btn-secondary text-white ml-3" href="{{ route('register') }}" role="button">会員登録</a>
+                        <a class="btn btn-secondary text-white ml-2" href="{{ route('register') }}" role="button">会員登録</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-secondary ml-2" href="{{ route('login') }}" role="button">ログイン</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-secondary ml-2" href="{{ route('login.guest') }}" role="button">ゲスト</a>
                     </li>
                 @else
                     {{-- ログイン済み --}}

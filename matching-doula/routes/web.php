@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//認証
 Auth::routes();
+
+//ゲストユーザーログイン
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
+
+//トップページ
 Route::get('/home', 'ItemsController@showItems');
 
 //商品一覧

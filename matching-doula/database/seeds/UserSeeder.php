@@ -81,5 +81,20 @@ class UserSeeder extends Seeder
             'image2_description' => '5人の娘&息子の出産育児経験（壮絶）をもとにサポートします^ ^',
             'image3_description' => '人と話すことが大好きです！！',
         ]);
+        factory(User::class)->create([
+            'name' => 'ゲストユーザー',
+            'email' => 'guest@guest.guest',
+            'email_verified_at' => now(),
+            'password' => Hash::make('guestguest'),
+            'avatar_file_name' => '2Qgaq22hnZFCX0Un6GWrEf9b2gvIZLwaKJCzsJKN.png',
+            'activities' => 'このアカウントはゲストログイン用になっております。本アプリの動作を自由にお試しください。まだまだ不十分な点も多いため何か感想等あればぜひお伺いできれば幸いです。',
+            'messages' => 'このアカウントはゲストログイン用になっております。本アプリの動作を自由にお試しください。まだまだ不十分な点も多いため何か感想等あればぜひお伺いできれば幸いです。',
+            'activity_image_file_name_1' => 'P5HCgGYU6EZmwszHAaETLeLTzr1nPsdBrGQVghMO.png',
+            'activity_image_file_name_2' => 'ApueMUEig9C2JqdmUtz0glww0ZREm68cn4kwImjN.png',
+            'activity_image_file_name_3' => 'Dpb8GCoFrgaRLZFBn34AuO8MxKkDJYr9YpVTcKPM.png',
+            'image1_description' => 'ゲスト用です',
+            'image2_description' => 'ゲスト用です',
+            'image3_description' => 'ゲスト用です',
+        ]);
     }
 }
