@@ -2,12 +2,12 @@
 
 namespace App\View\Components;
 
-use App\Models\PrimaryCategory; //カテゴリ選択肢追加
-use App\Models\Prefecture; //エリア選択肢追加
-use App\Models\Municipalitie; //エリア選択肢追加
-use App\Models\MessageRead; //新着通知
-use App\Models\Item; //新着通知
-use Illuminate\Support\Facades\Request; //フォーム保持追加
+use App\Models\PrimaryCategory;
+use App\Models\Prefecture;
+use App\Models\Municipalitie;
+use App\Models\MessageRead;
+use App\Models\Item;
+use Illuminate\Support\Facades\Request; 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
@@ -84,7 +84,7 @@ class Header extends Component
         return view('components.header')
         ->with('user', $user)
         ->with('prefectures', $prefectures)
-        ->with('categories', $categories)//カテゴリ選択肢追加
+        ->with('categories', $categories)
         ->with('defaults', $defaults)
         ->with('seller_readcheck', $seller_readcheck)
         ->with('buyer_readcheck', $buyer_readcheck);

@@ -30,8 +30,6 @@ class MessageSent implements ShouldBroadcast
         $this->user = $user;
         $this->message = $message;
         $this->messageroom = $messageroom;
-
-        // $this->message = $message->where('message_room_id', $messageroom->id )->get();
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\MyPage;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Item;
@@ -32,7 +33,6 @@ class LikedItemsController extends Controller
         ->orderBy('my_likes_count','desc')
         ->take(10)
         ->get();
-
 
         return view('mypage.liked_users')
         ->with('users', $users);
