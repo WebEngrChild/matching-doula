@@ -56,7 +56,7 @@
   - 商品毎
   - ユーザー毎のお気に入り獲得ランキング
 
-- **クレジット決済機能**
+- **クレジット決済機能(Pay.JP)**
 - **商品購入後のプライベートチャット機能(pusher/broadcast/event、vue.js)**
 - **チャット通知機能**
 - **Zoomミーティング生成（Zoom API）**
@@ -113,6 +113,7 @@
 対面での相談や商品サポートなどでZoomを活用できるようにZoomAPIを用いて上記チャット内で簡単にミーティングを作成できるようになっています。認証方法はJWTを用いており実際にトークンを作成して理解を深めるようにしました。
 
 [【Laravel×ZOOM API】JSON Web Tokensを自分で作成して実装してみた（JWTトークン編）](https://qiita.com/joe-main/items/864c79b8f35c202b099b)
+
 [【Laravel×ZOOM API】JSON Web Tokensを自分で作成して実装してみた（APIリクエスト編）](https://qiita.com/joe-main/items/2cc678640ecd0d6dd0d0)
 
 **③AWS S3への画像保存**
@@ -127,3 +128,4 @@
 - レスポンシブ対応
 - 無形出品の際は何度でも購入可能
 - メッセージ通知機能を非同期通信化
+- Zoomスケジューリング機能

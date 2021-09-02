@@ -64,6 +64,7 @@ class ItemsController extends Controller
 
         //商品状態を出品中・購入済みの順で表示
         $items = $query->orderByRaw( "FIELD(state, '" . Item::STATE_SELLING . "', '" . Item::STATE_BOUGHT . "')" )
+
             // ネストしたリレーションメソッドを使用する時はドット記法でつなぐ
             ->with('secondaryCategory.primaryCategory', 'likes', 'prefecture')
             ->orderBy('id', 'DESC')
