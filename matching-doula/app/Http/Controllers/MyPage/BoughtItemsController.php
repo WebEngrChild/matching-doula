@@ -4,7 +4,7 @@ namespace App\Http\Controllers\MyPage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; //追加
+use Illuminate\Support\Facades\Auth;
 
 class BoughtItemsController extends Controller
 {
@@ -17,7 +17,7 @@ class BoughtItemsController extends Controller
         * ドットの前で記述したリレーションメソッドも動的プロパティーとして持つことができる
         */
         $items = $user->boughtItems()
-        ->with('secondaryCategory.primaryCategory', 'buyerRead') // 通知機能実装
+        ->with('secondaryCategory.primaryCategory', 'buyerRead') 
         ->orderBy('id', 'DESC')
         ->get();
 

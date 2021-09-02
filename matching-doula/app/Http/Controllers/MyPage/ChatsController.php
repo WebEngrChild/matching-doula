@@ -1,17 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\MyPage;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Message; //追加
-use App\Models\Item; //追加
-use App\Models\MessageRead; //通知機能
-use App\Models\MessageUser; //通知機能
+use App\Models\Message;
+use App\Models\Item;
+use App\Models\MessageRead;
+use App\Models\MessageUser;
 use Illuminate\Support\Facades\Auth;
 use App\Events\MessageSent;
-
-use App\Models\MessageRoom;// リアルタイムチャット機能
+use App\Models\MessageRoom;
 
 class ChatsController extends Controller
 {

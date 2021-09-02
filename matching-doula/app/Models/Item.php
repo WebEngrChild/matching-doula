@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Support\Facades\Auth; //追加
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
@@ -15,7 +15,7 @@ class Item extends Model
     //商品の購入日時をCarbonクラスとして取得
     //キー名にカラム名を、値に変換先のデータ型を指定
     //bought_atカラムを取り出す際にdatetime(Carbonクラス)に変換するように設定しています。
-//  デフォルトのcreated_at,updated_atは記載不要
+    //  デフォルトのcreated_at,updated_atは記載不要
     protected $casts = [
     'bought_at' => 'datetime',
 ];

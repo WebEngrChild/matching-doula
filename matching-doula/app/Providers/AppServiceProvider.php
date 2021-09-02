@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Payjp\Payjp; //決済処理用に追加
+use Payjp\Payjp;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //決済処理用に追加
         Payjp::setApiKey(config('payjp.secret_key'));
     }
 }

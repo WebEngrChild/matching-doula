@@ -6,19 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-// class SoldItemsController extends Controller
-// {
-//     public function showSoldItems()
-//     {
-//         $user = Auth::user();
-
-//         $items = $user->soldItems()->orderBy('id', 'DESC')->get();
-
-//         return view('mypage.sold_items')
-//             ->with('items', $items);
-//     }
-// }
-
 class SoldItemsController extends Controller
 {
     public function showSoldItems()
@@ -30,7 +17,7 @@ class SoldItemsController extends Controller
         * ドットの前で記述したリレーションメソッドも動的プロパティーとして持つことができる
         */
         $items = $user->soldItems()->where('state', 'bought')
-        ->with('secondaryCategory.primaryCategory' ,'sellerRead') // 変更
+        ->with('secondaryCategory.primaryCategory' ,'sellerRead') 
         ->orderBy('id', 'DESC')
         ->get();
 

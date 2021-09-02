@@ -6,14 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\EditItemRequest;
 use Illuminate\Support\Facades\Auth;
-
 use App\Http\Requests\SellRequest;
 use App\Models\Item;
 use App\Models\ItemCondition;
 use App\Models\PrimaryCategory;
 use App\Models\Prefecture;
 use Illuminate\Http\File;
-
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;

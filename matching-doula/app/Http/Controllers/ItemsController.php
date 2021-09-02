@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Item;
-use App\Models\User;// 商品購入に使う
-use App\Models\MessageRoom;// リアルタイムチャット機能
-use App\Models\MessageUser;// リアルタイムチャット機能
-use App\Models\MessageRead;// 通知機能
-use App\Models\ActivityImage;// 通知機能
-use Carbon\Carbon;// 商品購入に使う
+use App\Models\User;
+use App\Models\MessageRoom;
+use App\Models\MessageUser;
+use App\Models\MessageRead;
+use App\Models\ActivityImage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;// 商品購入に使う
-use Illuminate\Support\Facades\DB;// 商品購入に使う
-use Illuminate\Support\Facades\Log;// 商品購入に使う
-use Payjp\Charge;//決済処理に使う
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Payjp\Charge;
 
 class ItemsController extends Controller
 {
     public function showItems(Request $request)
     {
-        $query = Item::query();// クエリビルダを取得する
+        // クエリビルダを取得する
+        $query = Item::query();
 
         //エリアで絞り込み
         if ($request->filled('prefecture')) {

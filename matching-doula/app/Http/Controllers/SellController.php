@@ -19,19 +19,9 @@ class SellController extends Controller
 {
     public function showSellForm()
     {
-        $prefectures = Prefecture::orderBy('sort_no')->get();
-
-        $categories = PrimaryCategory::orderBy('sort_no')->get();
         // header側でPrimaryCategory→secondaryCategoriesを記載しているためこちらは不要と思ったがそうすると$categoriesが渡せないため重複するが記載しておく
-        // $categories = PrimaryCategory::query()
-        // ->with([
-            //     'secondaryCategories' => function ($query) {
-                //         $query->orderBy('sort_no');
-                //     }
-                // ])
-        // ->orderBy('sort_no')
-        // ->get();
-
+        $prefectures = Prefecture::orderBy('sort_no')->get();
+        $categories = PrimaryCategory::orderBy('sort_no')->get();
         $conditions = ItemCondition::orderBy('sort_no')->get();
 
         return view('sell')
@@ -43,9 +33,7 @@ class SellController extends Controller
     public function sellItem(SellRequest $request)
     {
         $user = Auth::user();
-
         $imageName = $this->saveImage($request->file('item-image'));
-
 
         $item                        = new Item();
         $item->image_file_name       = $imageName;
