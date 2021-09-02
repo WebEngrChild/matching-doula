@@ -30,15 +30,15 @@
                     <div class="card-form-alert alert alert-danger" role="alert" style="display: none"></div>
                     <div class="form-group mt-3">
                         <label for="number-form">カード番号</label>
-                        <div id="number-form" class="form-control"><!-- ここにカード番号入力フォームが生成されます --></div>
+                        <div id="number-form" class="form-control"><!-- ここにカード番号入力フォームが生成 --></div>
                     </div>
                     <div class="form-group mt-3">
                         <label for="expiry-form">有効期限</label>
-                        <div id="expiry-form" class="form-control"><!-- ここに有効期限入力フォームが生成されます --></div>
+                        <div id="expiry-form" class="form-control"><!-- ここに有効期限入力フォームが生成 --></div>
                     </div>
                     <div class="form-group mt-3">
                         <label for="expiry-form">セキュリティコード</label>
-                        <div id="cvc-form" class="form-control"><!-- ここにCVC入力フォームが生成されます --></div>
+                        <div id="cvc-form" class="form-control"><!-- ここにCVC入力フォームが生成 --></div>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
     cvcElement.mount('#cvc-form')
 
     //イベント送信用のメソッド
-    //購入ボタンをクリックした際に、カード情報をPAY.JPサーバに送信し、カードトークンを取得した後、フォームを送信submitしています。
+    //購入ボタンをクリックした際にカード情報をPAY.JPサーバに送信、カードトークンを取得した後、フォームを送信submit
     function onSubmit(event) {
           const msgDom = document.querySelector('.card-form-alert');
           msgDom.style.display = "none";

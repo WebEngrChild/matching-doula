@@ -64,7 +64,6 @@
                     <div class="form-group mt-3">
                         <label for="prefecture">エリア</label>
                         <select name="prefecture" class="custom-select form-control @error('prefecture') is-invalid @enderror">
-                            {{-- 次のパートで実装します --}}
                             @foreach ($prefectures as $prefecture)
                             <option value="{{$prefecture->id}}" {{old('prefecture') == $prefecture->id ? 'selected' : ''}}>
                                 {{$prefecture->name}}
