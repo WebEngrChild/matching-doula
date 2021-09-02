@@ -4,18 +4,15 @@
      * building robust, powerful web applications using Vue and Laravel.
      */
 
-//  require("./bootstrap")　ここをコメントアウト
-
+//  require("./bootstrap")
 
 window.Vue = require("vue")
 
-//==========ここから追加==========
+//いいね機能
  import './bootstrap'
  import Vue from 'vue'
  import ArticleLike from './components/ArticleLike'
- //==========ここまで追加==========
-
- import BootstrapVue from "bootstrap-vue" //Importing
+ import BootstrapVue from "bootstrap-vue"
 
  Vue.use(BootstrapVue) // Teslling Vue to use this whole application
 
@@ -27,12 +24,10 @@ window.Vue = require("vue")
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
- // const files = require.context('./', true, /\.vue$/i);
- // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
+ //リアルタイムチャット機能
  Vue.component(
-     "example-component",
-     require("./components/ExampleComponent.vue").default
+     "message-room",
+     require("./components/MessageRoom.vue").default
  )
 
  /**
@@ -43,8 +38,8 @@ window.Vue = require("vue")
 
  const app = new Vue({
      el: "#app",
-     components: { //ここを追加
-        ArticleLike, //ここを追加
+     components: {
+        ArticleLike,
       }
  })
 
