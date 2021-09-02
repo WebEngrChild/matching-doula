@@ -12,7 +12,6 @@
 
                 <div class="font-weight-bold text-center border-bottom pb-3 pt-3" style="font-size: 24px">お気に入りした商品</div>
 
-                {{-- ここではN+1問題が発生してしまう --}}
                 @foreach ($items as $item)
                     <div class="d-flex mt-3 border position-relative">
                         <div>

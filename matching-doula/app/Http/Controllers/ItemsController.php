@@ -52,19 +52,12 @@ class ItemsController extends Controller
         }
 
         $items = $query->orderByRaw( "FIELD(state, '" . Item::STATE_SELLING . "', '" . Item::STATE_BOUGHT . "')" )
-            /*
-            * ネストしたリレーションメソッドを使用する時はドット記法でつなぐ
-            * ドットの前で記述したリレーションメソッドも動的プロパティーとして持つことができる
-            */
-
-            // いいね実装時に修正
-            ->with('secondaryCategory.primaryCategory', 'likes', 'prefecture') // 変更箇所
+            // ネストしたリレーションメソッドを使用する時はドット記法でつなぐ
+            ->with('secondaryCategory.primaryCategory', 'likes', 'prefecture')
             ->orderBy('id', 'DESC')
 
             // ページング処理
             ->paginate(8);
-
-            // dd($items);
 
         return view('items.items')
             ->with('items', $items);
@@ -87,8 +80,7 @@ class ItemsController extends Controller
 
     public function showBuyItemForm(Item $item)
     {
-        // エラーページをカスタマイズしたい場合は、以下のコマンドを実行して生成されたテンプレートを編集します。
-        // テンプレートはresources/views/errors以下に生成されます。
+        // エラーテンプレートはresources/views/errors以下に存在
         if (!$item->isStateSelling) {
             abort(404);
         }
@@ -109,13 +101,11 @@ class ItemsController extends Controller
 
          try {
              $this->settlement($item->id, $item->seller->id, $user->id, $token);
-             // $item->seller->idはuserのID取得
-             //$item->seller_idでもOK。同じことをしている。
 
          } catch (\Exception $e) {
 
-            // デフォルトでは、ログはstorage/logs/laravel.logに記録されます。
-            // なお、アプリケーションで例外をキャッチしなかった場合、Laravelによってキャッチされ、ログに記録された後、以下のエラー画面が表示されます。
+            // デフォルトでは、ログはstorage/logs/laravel.logに記録
+            // アプリケーションで例外をキャッチしなかった場合、Laravelによってキャッチされ、ログに記録された後、以下のエラー画面が表示
 
              Log::error($e);
              return redirect()->back()
@@ -134,8 +124,8 @@ class ItemsController extends Controller
 
          try {
             //①DB側への登録と重複確認
-            // 単一レコードをfindで取得して排他ロックして多重決済を避ける
-             $seller = User::lockForUpdate()->find($sellerID);//$item->seller->id  商品起点で紐づく売った人を取得。ユーザーテーブルで検索しているのでユーザーテーブルのID
+            // 単一レコードをfindで取得して排他ロックして多重決済を回避
+             $seller = User::lockForUpdate()->find($sellerID);
              $item   = Item::lockForUpdate()->find($itemID);
 
              if ($item->isStateBought) {
@@ -144,9 +134,9 @@ class ItemsController extends Controller
 
              $item->state     = Item::STATE_BOUGHT;
              $item->bought_at = Carbon::now();
-             $item->buyer_id  = $buyerID;//$user->id  ログインしている人
+             $item->buyer_id  = $buyerID;
 
-            //  ===========通知機能=================
+            //未読設定
             $seller_messageread = MessageRead::create([
                 'read' => false,
             ]);
@@ -158,7 +148,7 @@ class ItemsController extends Controller
             $item->seller_read_id = $seller_messageread->id;
             $item->buyer_read_id = $buyer_messageread->id;
 
-            //  ===========リアルタイムチャット機能(1)=================
+            //メッセージルームを作成
              $messageroom = MessageRoom::create([]);
              $item->message_room_id = $messageroom->id;
              $item->save();
@@ -166,7 +156,7 @@ class ItemsController extends Controller
              $seller->sales += $item->price;
              $seller->save();
 
-            //  ===========リアルタイムチャット機能(2)=================
+            //メッセージユーザーに登録
              $buy_messageuser = MessageUser::create([
                 'message_user_id' => $buyerID,
                 'message_room_id' => $messageroom->id
@@ -177,8 +167,8 @@ class ItemsController extends Controller
                 'message_room_id' => $messageroom->id
              ]);
 
-            // ②PAY.JP側への決済処理を実行する
-            //戻り値はChargeクラスのインスタンスです。
+            // ②PAY.JP側への決済処理を実行
+            //戻り値はChargeクラスのインスタンス。
              $charge = Charge::create([
                 'card'     => $token,
                 'amount'   => $item->price,

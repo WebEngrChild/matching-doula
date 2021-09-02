@@ -7,7 +7,6 @@
 @section('content')
 <div class="container">
     <div class="row">
-        {{-- ここではN+1問題が発生してしまう --}}
         @foreach ($items as $item)
             <div class="col-3 mb-3">
                 <div class="card">
@@ -30,7 +29,7 @@
                     <a href="{{ route('item', [$item->id]) }}" class="stretched-link"></a>
 
                 </div>
-                {{-- ここにいいね機能を実装する --}}
+                {{-- いいね機能 --}}
                 <div id="app">
                     <article-like
                         :initial-is-liked-by='@json($item->liked_by_user)'

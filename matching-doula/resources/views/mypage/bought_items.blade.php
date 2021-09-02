@@ -31,7 +31,6 @@
                                 <i class="fas fa-yen-sign"></i>
                                 <span class="ml-1">{{number_format($item->price)}}</span>
                                 <i class="far fa-clock ml-3"></i>
-                                {{-- デフォルトのカーボンクラスではない --}}
                                 <span>{{$item->bought_at->format('Y年n月j日 H:i')}}</span>
                             </div>
                         </div>

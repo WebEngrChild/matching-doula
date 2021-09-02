@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-//リアルタイムチャット機能認証
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\MessageRoom;
@@ -24,6 +23,7 @@ class CheckMessageRoom
      */
     public function handle($request, Closure $next)
     {
+        //リクエストされたURIからmesseageroomのidのみを抽出する
         $messageroomid = (int) str_replace(self::MESSAGEROOM, "",strstr(str_replace(self::SLASHSIGN, "", $request->getRequestUri()),self::MESSAGEROOM));
 
         if(Auth::check()){

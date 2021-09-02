@@ -64,7 +64,6 @@
                     <div class="form-group mt-3">
                         <label for="prefecture">エリア</label>
                         <select name="prefecture" class="custom-select form-control @error('prefecture') is-invalid @enderror">
-                            {{-- 次のパートで実装します --}}
                             @foreach ($prefectures as $prefecture)
                             <option value="{{$prefecture->id}}" {{$item->prefecture->id == $prefecture->id ? 'selected' : ''}}>
                                 {{$prefecture->name}}
@@ -82,7 +81,6 @@
                     <div class="form-group mt-3">
                         <label for="category">カテゴリ</label>
                         <select name="category" class="custom-select form-control @error('category') is-invalid @enderror">
-                            {{-- 次のパートで実装します --}}
                             @foreach ($categories as $category)
                                 <optgroup label="{{$category->name}}">
                                     @foreach($category->secondaryCategories as $secondary)
@@ -104,7 +102,6 @@
                     <div class="form-group mt-3">
                         <label for="condition">商品の状態</label>
                         <select name="condition" class="custom-select form-control @error('condition') is-invalid @enderror">
-                            {{-- 次のパートで実装します --}}
                             @foreach ($conditions as $condition)
                             <option value="{{$condition->id}}" {{$item->condition->id == $condition->id ? 'selected' : ''}}>
                                 {{$condition->name}}

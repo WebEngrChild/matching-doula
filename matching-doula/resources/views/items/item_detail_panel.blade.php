@@ -9,9 +9,6 @@
             <tr>
                 <th>出品者</th>
                 <td>
-                    <!-- ここでN+1問題起きている気がするが実際は起きていない -->
-                    <!-- 全てblongsToであるため多対一の関係性のため発行されるクエリは一つ-->
-                    <!-- もしここでUser → items → item のような場合はN+1問題が発生する-->
                     @if (!empty($item->seller->avatar_file_name))
                     <?php $seller_avatar_image = $item->seller->avatar_file_name ?>
                     <img src="{{ Storage::disk('s3')->url("avatars/$seller_avatar_image")}}" class="rounded-circle" style="object-fit: cover; width: 35px; height: 35px;">
@@ -29,8 +26,6 @@
             <tr>
             <tr>
                 <th>カテゴリー</th>
-                <!-- ここでN+1問題起きている気がするが実際は起きていない -->
-                <!-- ここでN+1問題起きている気がする -->
                 <td>{{$item->secondaryCategory->primaryCategory->name}} / {{$item->secondaryCategory->name}}</td>
             </tr>
             <tr>
@@ -46,7 +41,7 @@
                 <td>{{$item->postage}}</td>
             </tr>
         </table>
-        {{-- ここにいいね機能を実装する --}}
+        {{-- いいね機能 --}}
         <div id="app" class="text-center">
             <article-like
                 :initial-is-liked-by='@json($item->liked_by_user)'

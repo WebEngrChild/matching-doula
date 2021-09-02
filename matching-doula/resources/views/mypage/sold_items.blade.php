@@ -11,7 +11,6 @@
 
                 <div class="font-weight-bold text-center border-bottom pb-3 pt-3" style="font-size: 24px">売却済み商品</div>
 
-                {{-- ここではN+1問題が発生してしまう --}}
                 @foreach ($items as $item)
                 @if($item->sellerRead->read === 0)
                     <span class="badge bg-secondary text-white float-left">New!!</span>
