@@ -56,7 +56,7 @@ class EditItemController extends Controller
             ->with('status', '商品情報を変更しました');
     }
 
-         /**
+     /**
       * 商品画像をリサイズして保存します
       *
       * @param UploadedFile $file アップロードされた商品画像
