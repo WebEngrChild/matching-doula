@@ -10,14 +10,12 @@ class BoughtItemsController extends Controller
 {
     public function showBoughtItems()
     {
+        //ログイン情報取得
         $user = Auth::user();
 
-        /*
-        * ネストしたリレーションメソッドを使用する時はドット記法でつなぐ
-        * ドットの前で記述したリレーションメソッドも動的プロパティーとして持つことができる
-        */
+        //商品カテゴリーと既読有無を合わせて取得
         $items = $user->boughtItems()
-        ->with('secondaryCategory.primaryCategory', 'buyerRead') 
+        ->with('secondaryCategory.primaryCategory', 'buyerRead')
         ->orderBy('id', 'DESC')
         ->get();
 

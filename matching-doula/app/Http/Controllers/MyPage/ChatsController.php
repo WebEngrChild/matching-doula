@@ -21,10 +21,8 @@ class ChatsController extends Controller
 
     public function index(MessageRoom $messageroom)
     {
+        //ログイン情報取得
         $user = Auth::User();
-
-        //通知機能（自分を既読にする）
-        //ログインしたユーザー情報を取得
         $user_id = Auth::id();
 
         //今回の取引商品の情報を取得
@@ -80,7 +78,7 @@ class ChatsController extends Controller
         $seller_read = $item->sellerRead;
         $buyer_read = $item->buyerRead;
 
-        //自分を既読にする
+        //自分を既読にする(自身のユーザーIDを売り手・買い手の条件に合わせて判断)
         switch ($user_id){
             case $seller_id:
                 $seller_read->read = 1;
@@ -97,13 +95,13 @@ class ChatsController extends Controller
 
         $user = Auth::user();
 
+        //messageroomのidに紐づくMessageをcollectionで返す（Vue.js側で使用）
         return Message::with('messageUser')
         ->where('message_room_id', $messageroom->id)->get();
     }
 
     public function sendMessage(Request $request, MessageRoom $messageroom)
     {
-        //通知機能（相手を未読にする）
         //ログインしたユーザー情報を取得
         $user_id = Auth::id();
 
@@ -118,7 +116,7 @@ class ChatsController extends Controller
         $seller_read = $item->sellerRead;
         $buyer_read = $item->buyerRead;
 
-        //相手を既読にする
+        //相手を既読にする(自身のユーザーIDをもとに相手の条件（買い手・売り手）に合わせて判断)
         switch ($user_id){
             case $seller_id:
                 $buyer_read->read = 0;
@@ -140,6 +138,7 @@ class ChatsController extends Controller
             'message_user_id' => $user->id
         ]);
 
+        //メッセージ送信イベントを発生
         event(new MessageSent($user, $message, $messageroom));
 
         return ['status' => 'Message Sent!'];
