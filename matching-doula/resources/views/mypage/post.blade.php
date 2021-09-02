@@ -43,10 +43,10 @@
                             Meetingルームを作成
                         </button>
                     </form>
-                        <example-component
+                        <message-room
                         :message-Room-Id='@json($item->message_room_id)'
                         :auth-User='@json($user->name)'
-                        ></example-component>
+                        ></message-room>
                 </div>
             </div>
         </div>
