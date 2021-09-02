@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Events\MessageSent;
 use App\Models\MessageRoom;
 
-class ChatsController extends Controller
+class MessageRoomController extends Controller
 {
     public function __construct()
     {
