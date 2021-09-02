@@ -73,7 +73,7 @@ Route::prefix('mypage')
     ->group(function () {
 
         // リアルタイムチャット(メッセージルーム認証)
-        Route::get('messagesroom/{messageroom}', 'ChatsController@index')->name('mypage.messageroom-index');
+        Route::get('messagesroom/{messageroom}', 'MessageRoomController@index')->name('mypage.messageroom-index');
         Route::post('messagesroom/{messageroom}/zoom', 'ZoomMakeController@makeZoomMeeting')->name('mypage.make-zoom');
      });
 
@@ -84,8 +84,8 @@ Route::prefix('mypage')
     ->group(function () {
 
         // リアルタイムチャット(メッセージ送信認証)
-        Route::get('messagesroom/messages/{messageroom}', 'ChatsController@fetchMessages')->name('mypage.fetch-mssages');
-        Route::post('messagesroom/messages/{messageroom}', 'ChatsController@sendMessage')->name('mypage.send-message');
+        Route::get('messagesroom/messages/{messageroom}', 'MessageRoomController@fetchMessages')->name('mypage.fetch-mssages');
+        Route::post('messagesroom/messages/{messageroom}', 'MessageRoomController@sendMessage')->name('mypage.send-message');
     });
 
 
