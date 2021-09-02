@@ -51,6 +51,10 @@
                     </button>
                 </div>
 
+                <div class="form-group mt-2">
+                    <a class="btn btn-outline-secondary btn btn-block" href="{{ route('login.guest') }}">ゲストログイン</a>
+                </div>
+
                 <div class="mt-3">
                     アカウントをお持ちでない方は<a href="{{ route('register') }}">こちら</a>
                 </div>
