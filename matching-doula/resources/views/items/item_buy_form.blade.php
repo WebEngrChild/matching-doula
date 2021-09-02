@@ -29,15 +29,16 @@
                 <div class="col-8 offset-2">
                     <div class="card-form-alert alert alert-danger" role="alert" style="display: none"></div>
                     <div class="form-group mt-3">
-                        <label for="number-form">カード番号</label>
+                        <label for="number-form">カード番号　（4242 4242 4242 4242）</label>
                         <div id="number-form" class="form-control"><!-- ここにカード番号入力フォームが生成 --></div>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="expiry-form">有効期限</label>
+                        <label for="expiry-form">有効期限　（11 / 99）</label>
                         <div id="expiry-form" class="form-control"><!-- ここに有効期限入力フォームが生成 --></div>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="expiry-form">セキュリティコード</label>
+                        <label for="expiry-form">セキュリティコード （999）
+                        </label>
                         <div id="cvc-form" class="form-control"><!-- ここにCVC入力フォームが生成 --></div>
                     </div>
                 </div>
