@@ -22,35 +22,47 @@ class ItemsController extends Controller
         // クエリビルダを取得する
         $query = Item::query();
 
-        //エリアで絞り込み
+        //①エリアで絞り込み
         if ($request->filled('prefecture')) {
             $query->where('prefecture_id', $request->input('prefecture'));
         }
 
-        // カテゴリで絞り込み
+        // ②カテゴリで絞り込み
         if ($request->filled('category')) {
+
+            //カテゴリから種別とIDを切り出す
             list($categoryType, $categoryID) = explode(':', $request->input('category'));
 
+            //プライマリーカテゴリで絞り込み
             if ($categoryType === 'primary') {
+
+                //whereHasでリレーション先のテーブルのカラムを基に絞り込む
+                //第一引数:リレーションを定義しているメソッドの名前を指定
+                //第二引数:無名関数（クロージャ）を指定
                 $query->whereHas('secondaryCategory', function ($query) use ($categoryID) {
                     $query->where('primary_category_id', $categoryID);
                 });
+
+            //セカンダリーカテゴリで絞り込み
             } else if ($categoryType === 'secondary') {
                 $query->where('secondary_category_id', $categoryID);
             }
         }
 
-        // キーワードで絞り込み
+        // ③キーワードで絞り込み
         if ($request->filled('keyword')) {
+
+            //%で部分一致検索に指定、特殊記号をエスケープ
             $keyword = '%' . $this->escape($request->input('keyword')) . '%';
 
-        // A AND (B OR C)条件
+            // A AND (B OR C)条件
             $query->where(function ($query) use ($keyword) {
                 $query->where('name', 'LIKE', $keyword);
                 $query->orWhere('description', 'LIKE', $keyword);
             });
         }
 
+        //商品状態を出品中・購入済みの順で表示
         $items = $query->orderByRaw( "FIELD(state, '" . Item::STATE_SELLING . "', '" . Item::STATE_BOUGHT . "')" )
             // ネストしたリレーションメソッドを使用する時はドット記法でつなぐ
             ->with('secondaryCategory.primaryCategory', 'likes', 'prefecture')
@@ -65,6 +77,7 @@ class ItemsController extends Controller
 
     private function escape(string $value)
     {
+        //LIKE句で使用できる特殊記号を置換して無効化（エスケープ）
         return str_replace(
             ['\\', '%', '_'],
             ['\\\\', '\\%', '\\_'],
