@@ -63,7 +63,7 @@
 
 ## ER図
 
-<img width="585" alt="ER図" src="https://user-images.githubusercontent.com/87892265/131296654-a8f128f9-bf27-4794-b36d-9c598920ca6e.png">
+<img width="581" alt="ER図修正" src="https://user-images.githubusercontent.com/87892265/132439021-a0f0f5b2-0374-4bc0-a0da-891a06c5e231.png">
 
 ## 使用技術
 - **バックエンド**
